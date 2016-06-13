@@ -16,3 +16,7 @@ bindkey "^R" history-incremental-search-backward
 
 # Add RVM to PATH for scripting
 PATH=$PATH:$HOME/.rvm/bin
+
+# Setting Up GOPATH
+export GOPATH=$HOME/Development/go
+PATH=$PATH:$GOPATH/bin

@@ -29,3 +29,7 @@ brew install tmux
 brew install reattach-to-user-namespace
 
 brew install zsh
+
+brew install awscli
+brew install freetype
+brew install imagemagick

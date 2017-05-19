@@ -9,8 +9,6 @@ fi
 # Customize to your needs...
 bindkey "^R" history-incremental-search-backward
 
-# TODO: source /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
-
 export ANDROID_HOME=${HOME}/Library/Android/sdk
 export PATH=${PATH}:${ANDROID_HOME}/tools
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools

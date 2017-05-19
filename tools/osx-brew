@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
-# Install homebrew packages
+# install useful homebrew packages
 
-# Check for Homebrew
+# check for homebrew first
 if test ! $(which brew); then
   read -p "Confirm installing Homebrew (y/n): [n]" -n 1 -r; echo
   if [ "$REPLY" = "y" ]; then
@@ -11,25 +11,42 @@ if test ! $(which brew); then
   fi
 fi
 
-# Install Cask
+# install cask and packages
 brew tap caskroom/cask
 brew install caskroom/cask/brew-cask
 brew tap caskroom/versions
 
-brew install fasd
-brew install the_silver_searcher
-brew install wget
-brew install htop
-brew install watch
-brew install git
-brew install jsonpp
-brew install terminal-notifier
+brew install git                         # Git is a fast, scalable, distributed revision control system
+brew install git-lfs                     # Git extension for versioning large files
+brew install wget                        # GNU Wget is a free utility for non-interactive download of files from the Web
+brew install httpie                      # Modern command line HTTP client – user-friendly curl alternative with intuitive UI, JSON support, syntax highlighting, wget-like downloads, extensions, etc. https://httpie.org
+brew install youtube-dl                  # Command-line program to download videos from YouTube.com and other video sites http://rg3.github.io/youtube-dl/
+brew install freetype                    # FreeType is a freely available software library to render fonts. https://www.freetype.org/
+brew install imagemagick                 # https://www.imagemagick.org/
+brew install graphviz                    # Graphviz is open source graph visualization software http://graphviz.org/
 
-brew install tmux
-brew install reattach-to-user-namespace
+brew install htop                        # htop is an interactive text-mode process viewer for Unix systems
 
-brew install zsh
+brew install zsh                         # Zsh is a shell designed for interactive use, although it is also a powerful scripting language
+brew install zsh-completions             # Additional completion definitions for Zsh https://github.com/zsh-users/zsh-completions
+brew install tmux                        # Tmux is a "terminal multiplexer", it enables a number of terminals (or windows) to be accessed and controlled from a single terminal
+brew install reattach-to-user-namespace  # http://www.economyofeffort.com/2013/07/29/reattach-to-user-namespace-the-fix-for-your-tmux-in-os-x-woes/
+brew install terminal-notifier           # Send User Notifications on MacOS from the command-line
+
+brew install the_silver_searcher         # A code-searching tool similar to ack, but faster. http://geoff.greer.fm/ag/
+brew install fasd                        # Command-line productivity booster, offers quick access to files and directories, inspired by autojump, z and v
+
+brew install exercism                    # Level up your programming skills http://exercism.io/
+
+brew install jsonpp                      # A fast command line JSON pretty printer. http://jmhodges.github.com/jsonpp/
+brew install jq                          # Command-line JSON processor
 
 brew install awscli
-brew install freetype
-brew install imagemagick
+brew install heroku
+
+brew install go
+brew install hugo
+brew install node
+brew install leiningen
+brew install python3
+brew install sqlite

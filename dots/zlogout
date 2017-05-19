@@ -1,13 +1,9 @@
 #
 # Executes commands at logout.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
 
 # Print the message.
 cat <<-EOF
 
-Thank you. Come again!
-  -- Dr. Apu Nahasapeemapetilon
+Life doesn't have a ctrl-z. Type wisely.
+Bye!
 EOF

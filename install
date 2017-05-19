@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-# Install or update ~/dotfiles
+# install or update ~/dotfiles
 
 ROOT="$HOME/dotfiles"
 BACKUP="$ROOT.old"
@@ -29,7 +29,7 @@ else
   cd "$ROOT"
 fi
 
-# Link dots/* to $HOME
+# link dots/* to $HOME
 for f in "$ROOT"/dots/*; do
   t="$HOME/.$(basename "$f")"
 

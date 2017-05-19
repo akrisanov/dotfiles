@@ -1,31 +1,36 @@
-# Personal dotfiles (Prezto, ...)
+# Personal dotfiles for MacOS development machine
 
 ## Install
 
-```
-$ sh -c "$(curl -fsS https://raw.githubusercontent.com/akrisanov/dotfiles/master/install)"
+```bash
+sh -c "$(curl -fsS https://raw.githubusercontent.com/akrisanov/dotfiles/master/install)"
 ```
 
-Clones GitHub repository into ~/dotfiles, symlinks all files and folders from ~/dotfiles/dots/ into ~
+Clones GitHub repository into `~/dotfiles`, symlinks all files and folders from `~/dotfiles/dots/` into `~`
 by prepending a dot to the original name.
-If dotfile already exists it will be backed up in ~/dotfiles.old/.
+If dotfile already exists it will be backed up in `~/dotfiles.old/`.
 
 ## Update
 
-```
-$ ~/dotfiles/install
+```bash
+~/dotfiles/install
 ```
 
-## OS X
+## MacOS Specific Software and Packages
 
-* `~/dotfiles/tools/`
-  * `osx-tweaks` applies different OS X tweaks.
-  * `osx-brew`, `osx-cask` installs required homebrew packages.
+```bash
+# setup MacOS tweaks and configs:
+~/dotfiles/tools/osx-tweaks
+
+# install useful homebrew packages:
+~/dotfiles/tools/osx-brew
+~/dotfiles/tools/osx-cask
+```
 
 ## Fonts
 
 TODO
 
-## Zsh (Prezto)
+## Zsh and Prezto
 
 TODO

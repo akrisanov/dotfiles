@@ -1,5 +1,31 @@
 #!/usr/bin/env sh
 
-# Menu bar: show remaining battery time (on pre-10.8); hide percentage
+# show remaining battery time (on pre-10.8); hide percentage in menu bar
 defaults write com.apple.menuextra.battery ShowPercent -string "NO"
 defaults write com.apple.menuextra.battery ShowTime -string "YES"
+
+# disable auto-correct
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+
+# save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
+defaults write com.apple.screencapture type -string "png"
+# disable shadow in screenshots
+defaults write com.apple.screencapture disable-shadow -bool true
+
+# set the icon size of Dock items to 48 pixels
+defaults write com.apple.dock tilesize -int 48
+
+# show indicator lights for open applications in the Dock
+defaults write com.apple.dock show-process-indicators -bool true
+# wipe all (default) app icons from the Dock
+defaults write com.apple.dock persistent-apps -array
+# automatically hide and show the Dock
+defaults write com.apple.dock autohide -bool true
+
+# Set Safari’s home page to `about:blank` for faster loading
+defaults write com.apple.Safari HomePage -string "about:blank"
+# hide Safari’s bookmarks bar by default
+defaults write com.apple.Safari ShowFavoritesBar -bool false
+
+# prevent Time Machine from prompting to use new hard drives as backup volume
+defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true

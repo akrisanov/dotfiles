@@ -1,6 +1,5 @@
-
 #!/usr/bin/env sh
-# Update submodules used by dotfiles
+# update submodules used by dotfiles
 git submodule foreach '\
   git checkout master \
   && git pull origin master \

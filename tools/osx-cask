@@ -8,39 +8,29 @@ brew cask install gfxcardstatus
 brew cask install java
 
 brew cask install sizeup
-brew cask install contexts
 brew cask install bartender
-brew cask install magican
 
 brew cask install 1password
 brew cask install cheatsheet
 brew cask install alfred
-brew cask install flux
 brew cask install arq
 
-brew cask install forklift
 brew cask install transmit
 brew cask install google-drive
 brew cask install dropbox
-brew cask install onedrive
 
 brew cask install iterm2
 brew cask install devdocs
 brew cask install jetbrains-toolbox
-brew cask install visual-studio
 brew cask install visual-studio-code
-brew cask install atom
 brew cask install tower
 brew cask install docker
 brew cask install kitematic
 brew cask install vagrant
 brew cask install vagrant-manager
 brew cask install virtualbox
-brew cask install parallels-desktop
-brew cask install paw
 brew cask install postico
 
-brew cask install chromium
 brew cask install google-chrome
 brew cask install firefox
 brew cask install opera
@@ -48,21 +38,14 @@ brew cask install twitter
 
 brew cask install fantastical
 brew cask install wunderlist
-brew cask install omnifocus
 brew cask install evernote
-brew cask install omniplan
-brew cask install timing
 
-brew cask install ipvanish-vpn
 brew cask install tripmode
 brew cask install charles
 brew cask install angry-ip-scanner
 
 brew cask install android-file-transfer
-brew cask install android-studio
 
-brew cask install adobe-creative-cloud
-brew cask install adobe-creative-cloud-cleaner-tool
 brew cask install sketch
 brew cask install sketch-tool
 brew cask install sketch-toolbox
@@ -71,17 +54,8 @@ brew cask install battle-net
 brew cask install starcraft
 
 brew cask install bbc-iplayer-downloads
-brew cask install elmedia-player
-brew cask install audacity
-brew cask install audio-hijack
-brew cask install boom
 brew cask install gopro
 brew cask install gopro-studio
 
 brew cask install slack
-brew cask install telegram-desktop
-brew cask install whatsapp
-brew cask install viber
 brew cask install skype
-
-brew cask install cleanmymac

@@ -1,4 +1,6 @@
-# Personal dotfiles for MacOS development machine
+# dotfiles
+
+Personal dotfiles for Mac OS development machine.
 
 ## Install
 

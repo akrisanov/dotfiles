@@ -1,61 +1,47 @@
 #!/usr/bin/env sh
 # install brew cask packages
 
-brew cask install cakebrew
-
+# Hardware
 brew cask install gfxcardstatus
 
-brew cask install java
-
-brew cask install sizeup
-brew cask install bartender
-
-brew cask install 1password
-brew cask install cheatsheet
-brew cask install alfred
-brew cask install arq
-
-brew cask install transmit
+# Storage & Backups
 brew cask install google-drive
 brew cask install dropbox
+brew cask install arq
 
-brew cask install iterm2
-brew cask install devdocs
-brew cask install jetbrains-toolbox
-brew cask install visual-studio-code
-brew cask install tower
-brew cask install docker
-brew cask install kitematic
-brew cask install vagrant
-brew cask install vagrant-manager
-brew cask install virtualbox
-brew cask install postico
+# Software
+brew cask install sizeup
+brew cask install alfred
+brew cask install cheatsheet
+brew cask install 1password
+brew cask install fantastical
+brew cask install android-file-transfer
 
+# Messengers
+brew cask install slack
+brew cask install skype
+
+# Browsers
 brew cask install google-chrome
 brew cask install firefox
 brew cask install opera
 brew cask install twitter
 
-brew cask install fantastical
-brew cask install wunderlist
-brew cask install evernote
-
-brew cask install tripmode
-brew cask install charles
-brew cask install angry-ip-scanner
-
-brew cask install android-file-transfer
-
+# Design
 brew cask install sketch
 brew cask install sketch-tool
 brew cask install sketch-toolbox
 
-brew cask install battle-net
-brew cask install starcraft
+# Development
+brew cask install iterm2
 
-brew cask install bbc-iplayer-downloads
-brew cask install gopro
-brew cask install gopro-studio
+brew cask install docker
+brew cask install kitematic
 
-brew cask install slack
-brew cask install skype
+brew cask install visual-studio-code
+
+brew cask install java
+brew cask install jetbrains-toolbox
+
+brew cask install devdocs
+brew cask install postico

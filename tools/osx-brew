@@ -19,9 +19,11 @@ brew tap caskroom/versions
 brew install git                         # Git is a fast, scalable, distributed revision control system
 brew install git-lfs                     # Git extension for versioning large files
 brew install icdiff                      # icdiff: side-by-side highlighted command line diffs http://www.jefftk.com/icdiff
+
 brew install wget                        # GNU Wget is a free utility for non-interactive download of files from the Web
 brew install httpie                      # Modern command line HTTP client – user-friendly curl alternative with intuitive UI, JSON support, syntax highlighting, wget-like downloads, extensions, etc. https://httpie.org
 brew install youtube-dl                  # Command-line program to download videos from YouTube.com and other video sites http://rg3.github.io/youtube-dl/
+
 brew install freetype                    # FreeType is a freely available software library to render fonts. https://www.freetype.org/
 brew install imagemagick                 # https://www.imagemagick.org/
 brew install graphviz                    # Graphviz is open source graph visualization software http://graphviz.org/
@@ -43,9 +45,14 @@ brew install jsonpp                      # A fast command line JSON pretty print
 brew install jq                          # Command-line JSON processor
 
 brew install awscli
-brew install heroku
+brew install aws-elasticbeanstalk
 
-brew install go
-brew install node
-brew install python3
 brew install sqlite
+brew install postgresql
+brew install redis
+
+brew install python3
+brew install elixir
+brew install opam
+brew install node
+brew install go

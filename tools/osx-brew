@@ -16,6 +16,7 @@ brew tap caskroom/cask
 brew install caskroom/cask/brew-cask
 brew tap caskroom/versions
 
+brew install gpg2
 brew install git                         # Git is a fast, scalable, distributed revision control system
 brew install git-lfs                     # Git extension for versioning large files
 brew install icdiff                      # icdiff: side-by-side highlighted command line diffs http://www.jefftk.com/icdiff
@@ -31,6 +32,8 @@ brew install graphviz                    # Graphviz is open source graph visuali
 brew install htop                        # htop is an interactive text-mode process viewer for Unix systems
 
 brew install zsh                         # Zsh is a shell designed for interactive use, although it is also a powerful scripting language
+brew install zsh-syntax-highlighting
+brew install zsh-autosuggestions
 brew install zsh-completions             # Additional completion definitions for Zsh https://github.com/zsh-users/zsh-completions
 brew install tmux                        # Tmux is a "terminal multiplexer", it enables a number of terminals (or windows) to be accessed and controlled from a single terminal
 brew install reattach-to-user-namespace  # http://www.economyofeffort.com/2013/07/29/reattach-to-user-namespace-the-fix-for-your-tmux-in-os-x-woes/

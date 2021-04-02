@@ -1,36 +1,26 @@
 #!/usr/bin/env sh
 # install brew cask packages
 
-# Hardware
-brew cask install gfxcardstatus
+# Fonts
+brew cask install font-fira-code
+brew cask install font-jetbrains-mono
 
-# Storage & Backups
-brew cask install google-drive
-brew cask install dropbox
-
-# Software
-brew cask install sizeup
-brew cask install cheatsheet
-brew cask install 1password
-
-# Messengers
-brew cask install slack
-brew cask install skype
-
-# Browsers
-brew cask install google-chrome
-brew cask install firefox
-brew cask install opera
+brew cask install forklift
+brew cask install hiddenbar
+brew cask install hiddenbar
 
 # Development
 brew cask install iterm2
+brew cask install kitty
 
 brew cask install docker
+brew cask install minishift
 
+brew cask install fork
+brew cask install dash
+brew cask install insomnia
 brew cask install visual-studio-code
-
-brew cask install java
-brew cask install jetbrains-toolbox
-
-brew cask install devdocs
 brew cask install postico
+
+brew cask install openjdk
+brew cask install jetbrains-toolbox

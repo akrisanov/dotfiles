@@ -1,9 +1,0 @@
-#
-# Executes commands at logout.
-
-# Print the message.
-cat <<-EOF
-
-Life doesn't have a ctrl-z. Type wisely.
-Bye!
-EOF

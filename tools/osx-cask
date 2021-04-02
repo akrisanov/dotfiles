@@ -7,15 +7,11 @@ brew cask install gfxcardstatus
 # Storage & Backups
 brew cask install google-drive
 brew cask install dropbox
-brew cask install arq
 
 # Software
 brew cask install sizeup
-brew cask install alfred
 brew cask install cheatsheet
 brew cask install 1password
-brew cask install fantastical
-brew cask install android-file-transfer
 
 # Messengers
 brew cask install slack
@@ -25,18 +21,11 @@ brew cask install skype
 brew cask install google-chrome
 brew cask install firefox
 brew cask install opera
-brew cask install twitter
-
-# Design
-brew cask install sketch
-brew cask install sketch-tool
-brew cask install sketch-toolbox
 
 # Development
 brew cask install iterm2
 
 brew cask install docker
-brew cask install kitematic
 
 brew cask install visual-studio-code
 

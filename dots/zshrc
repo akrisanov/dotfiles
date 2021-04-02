@@ -1,11 +1,6 @@
 #
 # Executes commands at the start of an interactive session.
 
-export ANDROID_HOME=${HOME}/Library/Android/sdk
-export PATH=${PATH}:${ANDROID_HOME}/tools
-export PATH=${PATH}:${ANDROID_HOME}/platform-tools
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
@@ -23,7 +18,19 @@ source "$HOMEBREW_FOLDER/zsh-autosuggestions/zsh-autosuggestions.zsh"
 alias lsc="colorls"
 alias ls='ls -G'
 
-source $HOME/.rvm/scripts/rvm
-
 eval $(/usr/libexec/path_helper -s)
 eval "$(pyenv init -)"
+
+# Manage multiple runtime versions with a single CLI tool
+. /usr/local/opt/asdf/asdf.sh
+
+# Kubernetes
+export KUBE_EDITOR="vim"
+[[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
+
+alias k=kubectl
+alias kcd='kubectl config set-context $(kubectl config current-context) --namespace '
+
+# Golang
+export GOPATH=$HOME/go
+export PATH="$PATH:$(go env GOPATH)/bin"

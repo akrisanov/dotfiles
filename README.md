@@ -1,6 +1,4 @@
-# dotfiles
-
-Personal dotfiles for Mac OS development machine.
+# Personal dotfiles for macOS
 
 ## Install
 
@@ -8,8 +6,7 @@ Personal dotfiles for Mac OS development machine.
 sh -c "$(curl -fsS https://raw.githubusercontent.com/akrisanov/dotfiles/master/install)"
 ```
 
-Clones GitHub repository into `~/dotfiles`, symlinks all files and folders from `~/dotfiles/dots/` into `~`
-by prepending a dot to the original name.
+Clones GitHub repository into `~/dotfiles`, symlinks all files and folders from `~/dotfiles/dots/` into `~` by prepending a dot to the original name.
 If dotfile already exists it will be backed up in `~/dotfiles.old/`.
 
 ## Update
@@ -18,10 +15,13 @@ If dotfile already exists it will be backed up in `~/dotfiles.old/`.
 ~/dotfiles/install
 ```
 
-## MacOS Specific Software and Packages
+## Software and Packages
+
+These days I avoid installing development packages like programming languages, databases, etc. on macOS directly via homebrew.
+I run Docker containers whenever it's possible or makes sense. I still use homebrew to quickly download all the other software though:
 
 ```bash
-# setup MacOS tweaks and configs:
+# setup macOS tweaks and configs:
 ~/dotfiles/tools/osx-tweaks
 
 # install useful homebrew packages:
@@ -29,10 +29,12 @@ If dotfile already exists it will be backed up in `~/dotfiles.old/`.
 ~/dotfiles/tools/osx-cask
 ```
 
-## Fonts
+## Favorite Fonts
 
-TODO
+- [FiraCode](https://github.com/tonsky/FiraCodes)
+- [JetBrains Mono](https://github.com/JetBrains/JetBrainsMono)
+- Apple’s SF Mono Font
 
-## Zsh and Prezto
+---
 
-TODO
+Copyright (c) 2021 Andrey Krisanov

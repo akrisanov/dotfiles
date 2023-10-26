@@ -1,0 +1,14 @@
+theme = "Lithium"
+# Uncomment this to define which sections to show:
+# show = [
+#   "Host",
+#   "Kernel",
+#   "Distribution",
+#   "Packages",
+#   "Terminal",
+#   "Shell",
+#   "Uptime",
+#   "Processor",
+#   "Memory",
+#   "Battery",
+# ]

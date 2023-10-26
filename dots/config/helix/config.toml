@@ -1,0 +1,10 @@
+# https://docs.helix-editor.com/configuration.html
+# theme = ""
+
+[editor]
+line-number = "relative"
+mouse = false
+rulers = [100]
+
+[editor.file-picker]
+hidden = false

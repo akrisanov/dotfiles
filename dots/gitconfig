@@ -1,6 +1,7 @@
 [user]
-	name  = Andrey Krisanov
+	name = Andrey Krisanov
 	email = develop4net@gmail.com
+	signingkey =
 
 [color]
 	ui = true
@@ -34,11 +35,15 @@
   # https://git-scm.com/docs/git-config#git-config-mergeconflictStyle
   conflictstyle = diff3
 
-# [commit]
-	# TODO: "other people can trust that the changes you've made really were made by you"
+[commit]
+  # Require the signing key to verify commits
 	# https://help.github.com/articles/about-gpg/
 	# https://git-scm.com/docs/git-config#git-config-commitgpgSign
-  # gpgSign = true
+  gpgSign = true
+	tool = Kaleidoscope
+
+[tag]
+	gpgSign = true
 
 [push]
 	# "push the current branch back to the branch whose changes are usually integrated into the current branch"
@@ -67,10 +72,21 @@
 [diff]
 	# A nice little github-like colorful, split diff right in the console.
 	# via http://owen.cymru/github-style-diff-in-terminal-with-icdiff/
-  tool = icdiff
+	tool = Kaleidoscope
 
 [difftool]
-  prompt = false
+	prompt = false
+	trustExitCode = true
 
 [difftool "icdiff"]
   cmd = /usr/local/bin/icdiff --line-numbers $LOCAL $REMOTE
+
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
+
+[mergetool]
+	prompt = false

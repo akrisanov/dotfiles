@@ -1,4 +1,0 @@
-[default]
-region = eu-central-1
-[profile foodru-dev]
-region = ru-msk-1

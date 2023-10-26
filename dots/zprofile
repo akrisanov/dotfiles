@@ -13,8 +13,8 @@ fi
 # Editors
 #
 
-export EDITOR='nano'
-export VISUAL='nano'
+export EDITOR='hx'
+export VISUAL='hx'
 export PAGER='less'
 
 #
@@ -69,3 +69,11 @@ if [[ ! -d "$TMPDIR" ]]; then
 fi
 
 TMPPREFIX="${TMPDIR%/}/zsh"
+
+#
+# Apps
+#
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"

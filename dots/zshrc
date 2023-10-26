@@ -9,28 +9,62 @@ fi
 # Customize to your needs...
 bindkey "^R" history-incremental-search-backward
 
-# Load Zsh tools for syntax highlighting and autosuggestions
-HOMEBREW_FOLDER="/usr/local/share"
-source "$HOMEBREW_FOLDER/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-source "$HOMEBREW_FOLDER/zsh-autosuggestions/zsh-autosuggestions.zsh"
-
 # Aliases for list commands with colorful output
 alias lsc="colorls"
 alias ls='ls -G'
 
 eval $(/usr/libexec/path_helper -s)
-eval "$(pyenv init -)"
 
-# Manage multiple runtime versions with a single CLI tool
-. /usr/local/opt/asdf/asdf.sh
+# MacPorts Installer addition on 2022-09-12_at_17:44:30: adding an appropriate PATH variable for use with MacPorts.
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+# Finished adapting your PATH environment variable for use with MacPorts.
 
-# Kubernetes
-export KUBE_EDITOR="vim"
+# MacPorts Installer addition on 2022-09-12_at_17:44:30: adding an appropriate MANPATH variable for use with MacPorts.
+export MANPATH="/opt/local/share/man:$MANPATH"
+# Finished adapting your MANPATH environment variable for use with MacPorts.
+
+# Load Zsh tools for syntax highlighting and autosuggestions
+HOMEBREW_FOLDER="/usr/local/share"
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# Load Homebrew
+export PATH="/opt/homebrew/bin:$PATH"
+
+# Load ASDF for version management
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+# Golang path
+export GOPATH=$HOME/go
+export PATH="$PATH:$(go env GOPATH)/bin"
+
+# Kubernetes shell and aliases
+export KUBE_EDITOR="hx"
 [[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
 
 alias k=kubectl
 alias kcd='kubectl config set-context $(kubectl config current-context) --namespace '
 
-# Golang
-export GOPATH=$HOME/go
-export PATH="$PATH:$(go env GOPATH)/bin"
+export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/akrisanov/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/akrisanov/miniforge3/etc/profile.d/conda.sh" ]; then
+        . "/Users/akrisanov/miniforge3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/akrisanov/miniforge3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+# Configure GPG
+export GPG_TTY=$(tty)
+gpgconf --launch gpg-agent
+
+# Configure Opam (OCaml package manager)
+[[ ! -r /Users/akrisanov/.opam/opam-init/init.zsh ]] || source /Users/akrisanov/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null

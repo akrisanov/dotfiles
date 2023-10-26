@@ -1,9 +1,5 @@
 #!/usr/bin/env sh
 
-# show remaining battery time (on pre-10.8); hide percentage in menu bar
-defaults write com.apple.menuextra.battery ShowPercent -string "NO"
-defaults write com.apple.menuextra.battery ShowTime -string "YES"
-
 # disable auto-correct
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 

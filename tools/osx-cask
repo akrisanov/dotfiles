@@ -1,26 +1,75 @@
 #!/usr/bin/env sh
-# install brew cask packages
+# Install Homebrew packages and apps I commonly use.
+
+# Check for Homebrew and install if we don't have it
+if test ! $(which brew); then
+  read -p "Homebrew is not installed. Would you like to install it? (y/n): [n]" -n 1 -r; echo
+  if [ "$REPLY" = "y" ]; then
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  else
+    exit
+  fi
+fi
+
+brew tap homebrew/cask
+brew tap homebrew/versions
+brew tap homebrew/cask-fonts
 
 # Fonts
-brew cask install font-fira-code
-brew cask install font-jetbrains-mono
+brew install font-iosevka
+brew install font-fira-code
+brew install font-jetbrains-mono
 
-brew cask install forklift
-brew cask install hiddenbar
-brew cask install hiddenbar
+brew install forklift
+brew install hiddenbar
 
 # Development
-brew cask install iterm2
-brew cask install kitty
+brew install wezterm
+brew install docker
 
-brew cask install docker
-brew cask install minishift
+brew install dash
+brew install fork
+brew install postico
+brew install visual-studio-code
 
-brew cask install fork
-brew cask install dash
-brew cask install insomnia
-brew cask install visual-studio-code
-brew cask install postico
+brew install openjdk
+brew install jetbrains-toolbox
 
-brew cask install openjdk
-brew cask install jetbrains-toolbox
+# Apps
+brew install 1password
+brew install appcleaner
+brew install arc
+brew install arq
+brew install disk-inventory-x
+brew install eagle
+brew install edge
+brew install firefox
+brew install goodnotes
+brew install google-chrome
+brew install google-drive
+brew install iina
+brew install imageoptim
+brew install kindle
+brew install little-snitch
+brew install logseq
+brew install monitorcontrol
+brew install netnewswire
+brew install notion
+brew install obsidian
+brew install one-drive
+brew install openvpn-connect
+brew install opera
+brew install plex
+brew install rectangle
+brew install silentknight
+brew install slack
+brew install suspicious-package
+brew install telegram
+brew install todoist
+brew install topnotch
+brew install transmission
+brew install tripmode
+brew install vlc
+brew install whatsapp
+brew install yandex-browser
+brew install zoom

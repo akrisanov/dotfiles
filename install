@@ -1,53 +1,68 @@
+# This script installs dotfiles from git repository.
 #!/usr/bin/env sh
-# install or update ~/dotfiles
 
-ROOT="$HOME/dotfiles"
-BACKUP="$ROOT.old"
+# Define a config ----------------------------------------------------------------------------------
+
+ROOT="$HOME/dotfiles" # where to clone dotfiles repository
+BACKUP="$ROOT.old"    # backup directory for old dotfiles
 REPO="https://github.com/akrisanov/dotfiles.git"
 
+# Check if $HOME is set ----------------------------------------------------------------------------
+
 if [ -z "${HOME+xxx}" ]; then
-  echo "Error: \$HOME variable isn't set."
+  echo "❌ Error: \$HOME variable is not set. Exiting..."
   exit 1
 fi
 
+# Check if git is installed ------------------------------------------------------------------------
+
+if ! command -v git >/dev/null 2>&1; then
+  echo "❌ Error: git is not installed. Exiting..."
+  exit 1
+fi
+
+# Clone or pull dotfiles repository ----------------------------------------------------------------
+
 if [ -d "$ROOT" ]; then
-  START_TXT="Updating existing dotfiles..."
-  END_TXT="Dotfiles were updated successfully"
-  echo $START_TXT
+  # The dotfiles repository is already cloned, pull changes
+  DONE_MSG="✔️ Dotfiles were updated successfully"
+
+  echo "📦 Updating dotfiles..."
   cd "$ROOT"
   git pull
   git submodule update --recursive
 else
-  START_TXT="Installing dotfiles..."
-  END_TXT="Dotfiles were installed successfully"
-  echo $START_TXT
+  DONE_MSG="✔️ Dotfiles were installed successfully"
+
+  echo "📦 No dotfiles found, cloning from '$REPO'..."
   git clone --recursive "$REPO" "$ROOT"
   if [ ! $? -eq 0 ]; then
-    echo "Error: Could not clone dotfiles git repository."
+    echo "❌ Error: Something went wrong while cloning dotfiles repository. Exiting..."
     exit 1
   fi
   cd "$ROOT"
 fi
 
-# link dots/* to $HOME
+# Create symlinks in $HOME directory ---------------------------------------------------------------
+
 for f in "$ROOT"/dots/*; do
   t="$HOME/.$(basename "$f")"
 
   if [ -L "$t" ]; then
-    # break if file is already linked
+    # break if symlink already points to the file
     if [ "$(readlink "$t")" = "$f"  ]; then
       continue
     fi
   fi
 
-  # keep backup of old dotfiles in configured folder
+  # backup file if it exists to $BACKUP directory
   if [ -e "$t" ]; then
     if [ ! -d "$BACKUP" ]; then
       mkdir "$BACKUP"
       if [ $? -eq 0 ]; then
-        echo "Created backup directory at '$BACKUP'."
+        echo "🗃️ Created backup directory at '$BACKUP'"
       else
-        echo "Error: Could not create backup directory at '$BACKUP'."
+        echo "❌ Error: Could not create backup directory at '$BACKUP'. Exiting..."
         exit 1
       fi
     fi
@@ -65,11 +80,11 @@ for f in "$ROOT"/dots/*; do
     if [ $? -eq 0 ]; then
       ln -s "$f" "$t"
     else
-      echo "Warning: Could not move '$t' into backup directory."
+      echo "‼️ Warning: Could not move '$t' to the backup directory. Skipping..."
     fi
   else
     ln -s "$f" "$t"
   fi
 done
 
-echo $END_TXT
+echo $DONE_MSG

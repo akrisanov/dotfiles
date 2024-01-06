@@ -32,6 +32,8 @@ brew install git-lfs                     # Git extension for versioning large fi
 brew install icdiff                      # icdiff: side-by-side highlighted command line diffs http://www.jefftk.com/icdiff
 brew install gh                          # GitHub command-line tool https://github.com/cli/cli
 
+brew install eza                         # a modern replacement for ls
+brew install bat                         # A cat(1) clone with wings
 brew install wget                        # GNU Wget is a free utility for non-interactive download of files from the Web
 brew install htop                        # htop is an interactive text-mode process viewer for Unix systems
 brew install btop                        # Resource monitor that shows usage and stats for processor, memory, disks, network and processes
@@ -53,6 +55,7 @@ brew install kubernetes-cli              # Kubernetes command-line interface htt
 brew install openshift-cli               # OpenShift command-line interface tools https://www.openshift.com/
 brew install helm                        # Kubernetes package manager https://helm.sh/
 
+brew install zola                        # Fast static site generator in a single binary with everything built-in. https://www.getzola.org/
 brew install httpie                      # Modern command line HTTP client – user-friendly curl alternative with intuitive UI, JSON support, syntax highlighting, wget-like downloads, extensions, etc. https://httpie.org
 brew install mitmproxy                   # Intercept, modify, replay, save HTTP/S traffic https://mitmproxy.org
 

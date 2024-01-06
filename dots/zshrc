@@ -9,9 +9,13 @@ fi
 # Customize to your needs...
 bindkey "^R" history-incremental-search-backward
 
-# Aliases for list commands with colorful output
-alias lsc="colorls"
-alias ls='ls -G'
+# Command aliases ----------------------------------------------------------------------------------
+
+alias ls='eza'
+alias ll='eza -l'
+alias cat='bat'
+
+# --------------------------------------------------------------------------------------------------
 
 eval $(/usr/libexec/path_helper -s)
 

@@ -13,7 +13,7 @@ end
 -- This is where you actually apply your config choices
 function scheme_for_appearance(appearance)
   if appearance:find("Dark") then
-    return "Github Dark"
+    return "GruvboxDarkHard"
   else
     return "Gruvbox light, soft (base16)"
   end

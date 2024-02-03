@@ -1,7 +1,8 @@
-[user]
-	name = Andrey Krisanov
-	email = develop4net@gmail.com
-	signingkey =
+[includeIf "gitdir:~/Github/"]
+	path = .gitconfig-personal
+
+[includeIf "gitdir:~/Work/planfact/"]
+	path = .gitconfig-planfact
 
 [color]
 	ui = true

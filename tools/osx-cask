@@ -15,61 +15,93 @@ brew tap homebrew/cask
 brew tap homebrew/versions
 brew tap homebrew/cask-fonts
 
+# System Settings
+brew install betterdisplay
+brew install fontsmoothingadjuster
+brew install jordanbaird-ice
+brew install monitorcontrol
+brew install tg-pro
+
+# Utilities
+brew install appcleaner
+brew install arq
+brew install raycast
+brew install topnotch
+
 # Fonts
-brew install font-iosevka
+brew install font-cascadia-code
 brew install font-fira-code
+brew install font-hack-nerd-font
+brew install font-iosevka
 brew install font-jetbrains-mono
 
-brew install forklift
-brew install hiddenbar
-
-# Development
+# Terminal
+brew install iterm2
 brew install wezterm
-brew install docker
 
-brew install dash
-brew install fork
-brew install postico
-brew install visual-studio-code
-
-brew install openjdk
-brew install jetbrains-toolbox
-
-# Apps
+# Security & safety
 brew install 1password
-brew install appcleaner
-brew install arc
-brew install arq
-brew install disk-inventory-x
-brew install eagle
-brew install edge
-brew install firefox
-brew install goodnotes
-brew install google-chrome
-brew install google-drive
-brew install iina
-brew install imageoptim
-brew install kindle
-brew install little-snitch
-brew install logseq
-brew install monitorcontrol
-brew install netnewswire
-brew install notion
-brew install obsidian
-brew install one-drive
-brew install openvpn-connect
-brew install opera
-brew install plex
-brew install rectangle
 brew install silentknight
-brew install slack
 brew install suspicious-package
-brew install telegram
-brew install todoist
-brew install topnotch
+
+# Browsers
+brew install firefox
+brew install vivaldi
+
+# Network
+brew install lulu
 brew install transmission
 brew install tripmode
+brew install windows-app
+
+# Files & storage
+brew install disk-inventory-x
+brew install eagle
+brew install forklift
+brew install synology-drive
+
+# Notes and tasks
+brew install goodnotes
+brew install kindle
+brew install obsidian
+brew install reader
+brew install readwise-ibooks
+brew install todoist
+
+# Files formats
+brew install airflow
+brew install iina
+brew install imageoptim
+brew install plex
+brew install roon
 brew install vlc
-brew install whatsapp
-brew install yandex-browser
+brew install xld
+
+# Communication
+brew install mattermost
+brew install microsoft-outlook
+brew install telegram
 brew install zoom
+brew install whatsapp
+
+# Development
+brew install cursor
+brew install devcleaner
+brew install docker
+brew install fork
+brew install jetbrains-toolbox
+brew install ollama
+brew install postico
+brew install rapidapi
+brew install visual-studio-code
+brew install yaak
+brew install zed
+
+# Design & prototyping
+brew install colorpicker-propicker
+brew install figma
+brew install miro
+
+# Misc
+brew install obs
+brew install whisky

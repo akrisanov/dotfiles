@@ -1,2 +1,8 @@
 # Load the default .profile
 [[ -s "$HOME/.profile" ]] && source "$HOME/.profile"
+
+. "$HOME/.cargo/env"
+
+# >>> coursier install directory >>>
+export PATH="$PATH:/Users/akrisanov/Library/Application Support/Coursier/bin"
+# <<< coursier install directory <<<

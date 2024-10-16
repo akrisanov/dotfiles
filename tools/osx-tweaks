@@ -1,5 +1,8 @@
 #!/usr/bin/env sh
 
+# install Rosetta 2
+/usr/sbin/softwareupdate --install-rosetta --agree-to-license
+
 # disable auto-correct
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 

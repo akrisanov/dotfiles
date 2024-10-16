@@ -12,13 +12,16 @@ if test ! $(which brew); then
 fi
 
 # Install packages
+
+## system dependencies
 brew install openssl                     # OpenSSL SSL/TLS cryptography library
 brew install readline                    # Software library that provides in-line editing and history capabilities
 brew install xz                          # Compress or decompress FILEs in the .xz format
 brew install zlib                        # General-purpose lossless data-compression library
 brew install gpg2                        # Signing and verification for GNU Privacy Guard 2
 
-brew install direnv                      # Load/unload environment variables based on $PWD
+## shell
+brew install bash                        # GNU Bourne-Again SHell
 brew install zsh                         # Zsh is a shell designed for interactive use, although it is also a powerful scripting language
 brew install zsh-syntax-highlighting     # Syntax highlighting for Zsh
 brew install zsh-autosuggestions         # Autosuggestions for Zsh
@@ -26,40 +29,53 @@ brew install zsh-completions             # Additional completion definitions for
 brew install tmux                        # Tmux is a "terminal multiplexer", it enables a number of terminals (or windows) to be accessed and controlled from a single terminal
 brew install reattach-to-user-namespace  # http://www.economyofeffort.com/2013/07/29/reattach-to-user-namespace-the-fix-for-your-tmux-in-os-x-woes/
 brew install terminal-notifier           # Send User Notifications on macOS from the command-line
+brew install atuin                       # A modern, extensible shell history library
+brew install direnv                      # Load/unload environment variables based on $PWD
 
+## git
 brew install git                         # Git is a fast, scalable, distributed revision control system
 brew install git-lfs                     # Git extension for versioning large files
+brew install git-absorb                  # git commit --fixup, but automatic
 brew install icdiff                      # icdiff: side-by-side highlighted command line diffs http://www.jefftk.com/icdiff
 brew install gh                          # GitHub command-line tool https://github.com/cli/cli
+brew install lazygit                    # Simple terminal UI for git commands https://github.com/jesseduffield/lazygit
 
-brew install eza                         # a modern replacement for ls
-brew install bat                         # A cat(1) clone with wings
-brew install wget                        # GNU Wget is a free utility for non-interactive download of files from the Web
-brew install htop                        # htop is an interactive text-mode process viewer for Unix systems
+## system tools
 brew install btop                        # Resource monitor that shows usage and stats for processor, memory, disks, network and processes
+
+## file manipulation
+brew install eza                         # a modern replacement for ls
+brew install fd                          # A simple, fast and user-friendly alternative to 'find'
+brew install bat                         # A cat(1) clone with wings
 brew install tree                        # Display directories as trees (with optional color/HTML output) http://mama.indstate.edu/users/ice/tree/
-brew install mc                          # Terminal-based visual file manager
 brew install nnn                         # nnn is a full-featured terminal file manager
-
-brew install jsonpp                      # A fast command line JSON pretty printer. http://jmhodges.github.com/jsonpp/
-brew install jq                          # Command-line JSON processor
-
-brew install asdf                        # Manage multiple runtime versions with a single CLI tool https://asdf-vm.com/
-brew install sqlite                      # A database engine, a library that software developers embed in their apps
-
-brew install helix                       # Modern terminal editor https://helix-editor.com/
-
-brew install dive                        # Tool for exploring each layer in a docker image https://github.com/wagoodman/dive
-brew install minikube                    # Run a Kubernetes cluster locally https://minikube.sigs.k8s.io/
-brew install kubernetes-cli              # Kubernetes command-line interface https://kubernetes.io/
-brew install openshift-cli               # OpenShift command-line interface tools https://www.openshift.com/
-brew install helm                        # Kubernetes package manager https://helm.sh/
-
-brew install zola                        # Fast static site generator in a single binary with everything built-in. https://www.getzola.org/
-brew install httpie                      # Modern command line HTTP client – user-friendly curl alternative with intuitive UI, JSON support, syntax highlighting, wget-like downloads, extensions, etc. https://httpie.org
-brew install mitmproxy                   # Intercept, modify, replay, save HTTP/S traffic https://mitmproxy.org
 
 brew install ffmpeg                      # Play, record, convert, and stream audio and video
 brew install youtube-dl                  # Command-line program to download videos from YouTube.com and other video sites http://rg3.github.io/youtube-dl/
+brew install mp3info                     # MP3 technical info viewer and ID3 tag editor
 
+## data processing
+brew install jq                          # Command-line JSON processor
+brew install sqlite                      # A database engine, a library that software developers embed in their apps
+
+## network
+brew install wget                        # GNU Wget is a free utility for non-interactive download of files from the Web
+brew install telnet                      # User interface to the TELNET protocol
+brew install httpie                      # Modern command line HTTP client – user-friendly curl alternative with intuitive UI, JSON support, syntax highlighting, wget-like downloads, extensions, etc. https://httpie.org
+brew install mitmproxy                   # Intercept, modify, replay, save HTTP/S traffic https://mitmproxy.org
+
+## editors
+brew install vim                         # Vi IMproved - enhanced vi
+brew install helix                       # Modern terminal editor https://helix-editor.com/
+
+## learning
 brew install exercism                    # Level up your programming skills http://exercism.io/
+
+## writing
+brew install zola                        # Fast static site generator in a single binary with everything built-in. https://www.getzola.org/
+
+## development
+brew install asdf                        # Manage multiple runtime versions with a single CLI tool https://asdf-vm.com/
+
+brew install dive                        # Tool for exploring each layer in a docker image https://github.com/wagoodman/dive
+brew install lazydocker                  # The lazier way to manage docker containers https://github.com/jesseduffield/lazydocker

@@ -70,5 +70,6 @@ unset __conda_setup
 export GPG_TTY=$(tty)
 gpgconf --launch gpg-agent
 
-# Configure Opam (OCaml package manager)
-[[ ! -r /Users/akrisanov/.opam/opam-init/init.zsh ]] || source /Users/akrisanov/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+eval "$(atuin init zsh)"
+
+. "$HOME/.cargo/env"

@@ -40,8 +40,7 @@
   # Require the signing key to verify commits
 	# https://help.github.com/articles/about-gpg/
 	# https://git-scm.com/docs/git-config#git-config-commitgpgSign
-  gpgSign = true
-	tool = Kaleidoscope
+	gpgsign = true
 
 [tag]
 	gpgSign = true
@@ -73,21 +72,20 @@
 [diff]
 	# A nice little github-like colorful, split diff right in the console.
 	# via http://owen.cymru/github-style-diff-in-terminal-with-icdiff/
-	tool = Kaleidoscope
+	tool = icdiff
 
 [difftool]
 	prompt = false
 	trustExitCode = true
 
 [difftool "icdiff"]
-  cmd = /usr/local/bin/icdiff --line-numbers $LOCAL $REMOTE
-
-[difftool "Kaleidoscope"]
-	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
-
-[mergetool "Kaleidoscope"]
-	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustExitCode = true
+  cmd = icdiff --head=5000 --highlight --line-numbers -L \"$BASE\" -L \"$REMOTE\" \"$LOCAL\" \"$REMOTE\"
 
 [mergetool]
 	prompt = false
+
+[gpg]
+	program = /opt/homebrew/bin/gpg
+
+[user]
+	signingkey = 53FD391BE0D013000ED9603B8917FA3C7EB349AB

@@ -51,7 +51,7 @@ brew install tree                        # Display directories as trees (with op
 brew install nnn                         # nnn is a full-featured terminal file manager
 
 brew install ffmpeg                      # Play, record, convert, and stream audio and video
-brew install youtube-dl                  # Command-line program to download videos from YouTube.com and other video sites http://rg3.github.io/youtube-dl/
+brew install yt-dlp                      # Command-line program to download videos from YouTube.com and other video sites
 brew install mp3info                     # MP3 technical info viewer and ID3 tag editor
 
 ## data processing

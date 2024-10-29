@@ -81,6 +81,7 @@ brew install zoom
 brew install whatsapp
 
 # Development
+brew install bruno
 brew install cursor
 brew install devcleaner
 brew install docker

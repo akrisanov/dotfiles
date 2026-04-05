@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+# Rust
+mise use -g rust@stable
+mise x rust -- rustup component add rust-analyzer rustfmt clippy rust-src

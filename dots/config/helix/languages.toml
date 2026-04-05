@@ -1,0 +1,55 @@
+# Python -------------------------------------------------------------------------------------------
+
+[[language]]
+name = "python"
+auto-format = true
+language-servers = ["ruff", "ty"]
+formatter = { command = "ruff", args = ["format", "-"] }
+
+[language-server.ruff]
+command = "ruff"
+args = ["server"]
+
+[language-server.ty]
+command = "ty"
+args = ["server"]
+
+[language.debugger]
+name = "debugpy"
+transport = "stdio"
+command = "python3"
+args = ["-m", "debugpy.adapter"]
+
+[[language.debugger.templates]]
+name = "source"
+request = "launch"
+completion = [{ name = "entrypoint", completion = "filename", default = "." }]
+args = { mode = "debug", program = "{0}" }
+
+# Rust ---------------------------------------------------------------------------------------------
+
+[[language]]
+name = "rust"
+auto-format = true
+formatter = { command = "rustfmt" }
+
+[language-server.rust-analyzer]
+command = "rust-analyzer"
+
+[language-server.rust-analyzer.config.check]
+command = "clippy"
+
+# Go -----------------------------------------------------------------------------------------------
+
+[[language]]
+name = "go"
+auto-format = true
+formatter = { command = "goimports" }
+language-servers = ["gopls", "golangci-lint-lsp"]
+
+[language-server.gopls]
+command = "gopls"
+config = { "gofumpt" = true }
+
+[language-server.golangci-lint-lsp]
+command = "golangci-lint-langserver"

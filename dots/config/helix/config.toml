@@ -2,9 +2,17 @@
 # theme = ""
 
 [editor]
+bufferline = "multiple"
+cursorline = true
 line-number = "relative"
 mouse = false
 rulers = [100]
+true-color = true
 
 [editor.file-picker]
 hidden = false
+
+[editor.lsp]
+display-inlay-hints = true
+display-messages = true
+display-progress-messages = false

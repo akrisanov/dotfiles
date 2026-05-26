@@ -1,0 +1,6 @@
+[tools]
+python = "latest"   # latest stable CPython
+node   = "lts"      # latest LTS release
+go     = "latest"   # latest stable Go
+rust   = "stable"   # latest stable toolchain
+java   = "latest"   # latest stable OpenJDK (Temurin)

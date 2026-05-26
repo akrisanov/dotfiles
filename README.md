@@ -1,77 +1,71 @@
-# Personal Dotfiles and Configs
+# dotfiles
 
-## Prerequisites
+Personal macOS & Linux dotfiles managed with [chezmoi](https://chezmoi.io).
 
-- macOS or Linux
-- [Git](https://git-scm.com/)
+## Stack
 
-## How To Install
+| Layer | Tool |
+|---|---|
+| Dotfiles manager | chezmoi |
+| Shell | Zsh + Starship prompt |
+| Terminal | Ghostty |
+| Editor | Helix · VS Code · Zed |
+| Packages | Homebrew (Brewfile) |
+| Runtimes | mise (Python · Node · Go · Rust · Java) |
+| History | atuin |
 
-Run the bootstrap script to install [chezmoi](https://chezmoi.io) and apply all dotfiles in one step:
+## Install
 
-```bash
+```sh
 sh -c "$(curl -fsLS https://raw.githubusercontent.com/akrisanov/dotfiles/master/bootstrap.sh)"
 ```
 
-chezmoi will prompt for personal data (name, email, GPG key) on first run and store the config at
-`~/.config/chezmoi/chezmoi.toml`. Subsequent runs use saved values.
+On first run chezmoi will prompt for name, email and GPG key — saved to `~/.config/chezmoi/chezmoi.toml`.
 
-## How To Update
+## Update
 
-Pull changes and re-apply:
-
-```bash
-chezmoi update
+```sh
+chezmoi update   # pull + apply
+chezmoi apply    # apply local changes only
 ```
 
-Or apply local edits after making changes directly in the source directory:
+## Packages
 
-```bash
-chezmoi apply
+```sh
+brew bundle                  # install everything from Brewfile
+brew bundle check            # show what's missing
+brew bundle cleanup          # remove packages not in Brewfile
 ```
 
-## Installing Programs
+## macOS defaults
 
-Configure macOS settings:
-
-```bash
+```sh
 ~/dotfiles/tools/osx-tweaks
 ```
 
-Install Homebrew packages:
+## Git profiles
 
-```bash
-~/dotfiles/tools/osx-brew
-~/dotfiles/tools/osx-cask
+Profiles auto-activate by directory:
+
+| Directory | Profile |
+|---|---|
+| `~/Projects/` | `~/.config/git/profiles/personal.gitconfig` |
+| `~/Work/` | `~/.config/git/profiles/work.gitconfig` |
+
+Copy an example and fill in your details:
+
+```sh
+cp ~/.config/git/profiles/personal.gitconfig.example ~/.config/git/profiles/personal.gitconfig
 ```
 
-## Terminal Emulator
+Or switch manually:
 
-I've recently switched from [iTerm2](https://iterm2.com/) to [wezterm](https://wezfurlong.org/wezterm/)
-as my terminal of choice. You can find the configuration file in `dot_wezterm.lua`.
-The config comes with automatic dark/light theme switching based on macOS appearance.
-
-## Shell
-
-[Zsh](https://www.zsh.org/) is old friend. Some configuration and plugins are managed by
-[prezto](https://github.com/sorin-ionescu/prezto). It is installed automatically via
-`run_once_install_zprezto.sh` when applying dotfiles with chezmoi.
-
-## Editors
-
-I use [Visual Studio Code](https://code.visualstudio.com/) as my main editor and [Helix](https://helix-editor.com/)
-when I edit files in the terminal.
-
-![Wezterm and Helix](wezterm-helix.png)
-
-## Favorite Fonts
-
-Some of my favorite fonts are available through Homebrew Cask and are installed by the `osx-cask` script.
-
-- [Iosevka](https://github.com/be5invis/Iosevka)
-- [JetBrains Mono](https://github.com/JetBrains/JetBrainsMono)
-- [FiraCode](https://github.com/tonsky/FiraCodes)
+```sh
+gitprofile personal
+gitprofile          # show current
+```
 
 ---
 
-Copyright (c) 2021–2026 Andrey Krisanov
+Copyright © 2021–2026 Andrey Krisanov
+

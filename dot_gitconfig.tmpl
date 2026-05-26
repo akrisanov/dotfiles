@@ -5,6 +5,13 @@
 [include]
 	path = ~/.gitconfig.local
 
+# Directory-based profiles (override ~/.gitconfig.local for matching repos)
+[includeIf "gitdir:~/Projects/"]
+	path = ~/.config/git/profiles/personal.gitconfig
+
+[includeIf "gitdir:~/Work/"]
+	path = ~/.config/git/profiles/work.gitconfig
+
 [color]
 	ui = true
 

@@ -47,14 +47,14 @@ Temporary Items
 *.icloud
 
 ### dotfiles ###
-dots/config/JetBrains
-dots/config/PVS-Studio
-dots/config/cody-ai
-dots/config/exercism
-dots/config/flutter
-dots/config/github-copilot
-dots/config/iterm2
-dots/config/raycast
-dots/config/uv
-dots/config/zed/*
-!dots/config/zed/settings.json
+dot_config/JetBrains
+dot_config/PVS-Studio
+dot_config/cody-ai
+dot_config/exercism
+dot_config/flutter
+dot_config/github-copilot
+dot_config/iterm2
+dot_config/raycast
+dot_config/uv
+dot_config/zed/*
+!dot_config/zed/settings.json

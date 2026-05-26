@@ -1,0 +1,15 @@
+{{- $name := promptStringOnce . "name" "Full name" -}}
+{{- $email := promptStringOnce . "email" "Email address" -}}
+{{- $signingKey := promptStringOnce . "signingKey" "GPG signing key ID" -}}
+
+[data]
+    name = {{ $name | quote }}
+    email = {{ $email | quote }}
+    signingKey = {{ $signingKey | quote }}
+{{- if eq .chezmoi.os "darwin" }}
+    is_macos = true
+    homebrew_prefix = "/opt/homebrew"
+{{- else }}
+    is_macos = false
+    homebrew_prefix = ""
+{{- end }}

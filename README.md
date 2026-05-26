@@ -2,33 +2,35 @@
 
 ## Prerequisites
 
-- macOS (other Unix-like systems should work too with some tweaks)
-- [Homebrew](https://brew.sh/)
+- macOS or Linux
 - [Git](https://git-scm.com/)
 
 ## How To Install
 
-Run the following command to download the configs to `$HOME/dotfiles` and create symlinks
-from the contents of the `dots/` subdirectory in `$HOME`:
+Run the bootstrap script to install [chezmoi](https://chezmoi.io) and apply all dotfiles in one step:
 
 ```bash
-sh -c "$(curl -fsS https://raw.githubusercontent.com/akrisanov/dotfiles/master/install)"
+sh -c "$(curl -fsLS https://raw.githubusercontent.com/akrisanov/dotfiles/master/bootstrap.sh)"
 ```
 
-If the dotfiles directory already exists, it will be backed up to `~/dotfiles.old/`.
+chezmoi will prompt for personal data (name, email, GPG key) on first run and store the config at
+`~/.config/chezmoi/chezmoi.toml`. Subsequent runs use saved values.
 
 ## How To Update
 
-The `install` script can be used to pull the latest version of the dotfiles from Github and update the symlinks:
+Pull changes and re-apply:
 
 ```bash
-~/dotfiles/install
+chezmoi update
+```
+
+Or apply local edits after making changes directly in the source directory:
+
+```bash
+chezmoi apply
 ```
 
 ## Installing Programs
-
-Installing software and packages is done through Homebrew and Homebrew Cask.
-The process is not automated, but these scripts can be used as a starting point.
 
 Configure macOS settings:
 
@@ -46,20 +48,19 @@ Install Homebrew packages:
 ## Terminal Emulator
 
 I've recently switched from [iTerm2](https://iterm2.com/) to [wezterm](https://wezfurlong.org/wezterm/)
-as my terminal of choice. You can find the configuration file in `dots/wezterm.lua`.
+as my terminal of choice. You can find the configuration file in `dot_wezterm.lua`.
 The config comes with automatic dark/light theme switching based on macOS appearance.
 
 ## Shell
 
 [Zsh](https://www.zsh.org/) is old friend. Some configuration and plugins are managed by
-[prezto](https://github.com/sorin-ionescu/prezto).
+[prezto](https://github.com/sorin-ionescu/prezto). It is installed automatically via
+`run_once_install_zprezto.sh` when applying dotfiles with chezmoi.
 
 ## Editors
 
 I use [Visual Studio Code](https://code.visualstudio.com/) as my main editor and [Helix](https://helix-editor.com/)
 when I edit files in the terminal.
-
-![Visual Studio Code](vscode.png)
 
 ![Wezterm and Helix](wezterm-helix.png)
 
@@ -73,4 +74,4 @@ Some of my favorite fonts are available through Homebrew Cask and are installed 
 
 ---
 
-Copyright (c) 2021–2023 Andrey Krisanov
+Copyright (c) 2021–2026 Andrey Krisanov

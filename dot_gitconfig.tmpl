@@ -1,8 +1,9 @@
-[includeIf "gitdir:~/Github/"]
-	path = .gitconfig-personal
+# ~/.gitconfig — managed by chezmoi, do not edit directly.
+# Profile switching: run `gitprofile <name>` to activate a profile from ~/.config/git/profiles/
 
-[includeIf "gitdir:~/Work/planfact/"]
-	path = .gitconfig-planfact
+# Active profile (set by `gitprofile` command)
+[include]
+	path = ~/.gitconfig.local
 
 [color]
 	ui = true
@@ -70,24 +71,29 @@
   fsckobjects = true
 
 [diff]
-	# A nice little github-like colorful, split diff right in the console.
-	# via http://owen.cymru/github-style-diff-in-terminal-with-icdiff/
-	tool = icdiff
+	colorMoved = default
+
+[core]
+	pager = delta
+
+[interactive]
+	diffFilter = delta --color-only
+
+[delta]
+	navigate    = true    # use n/N to move between diff sections
+	line-numbers = true
+	side-by-side = false
 
 [difftool]
 	prompt = false
-	trustExitCode = true
-
-[difftool "icdiff"]
-  cmd = icdiff --head=5000 --highlight --line-numbers -L \"$BASE\" -L \"$REMOTE\" \"$LOCAL\" \"$REMOTE\"
 
 [mergetool]
 	prompt = false
 
 [gpg]
-	program = /opt/homebrew/bin/gpg
+	program = gpg
 
 [user]
-	signingkey = 53FD391BE0D013000ED9603B8917FA3C7EB349AB
-	name = Andrey Krisanov
-	email = 238505+akrisanov@users.noreply.github.com
+	name       = {{ .name }}
+	email      = {{ .email }}
+	signingkey = {{ .signingKey }}

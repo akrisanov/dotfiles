@@ -1,0 +1,7 @@
+# Personal profile — copy to ~/.config/git/profiles/personal.gitconfig and fill in.
+# Activate with: gitprofile personal
+
+[user]
+	name       = Your Name
+	email      = you@example.com
+	signingkey = GPG_KEY_ID

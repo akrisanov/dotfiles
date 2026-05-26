@@ -1,0 +1,7 @@
+# Work profile — copy to ~/.config/git/profiles/work.gitconfig and fill in.
+# Activate with: gitprofile work
+
+[user]
+	name       = Your Name
+	email      = you@company.com
+	signingkey = GPG_KEY_ID

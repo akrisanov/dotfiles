@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# chezmoi: run_once — enable Touch ID for sudo on macOS
+# Uses /etc/pam.d/sudo_local which survives system updates (macOS Ventura 13.2+)
+{{ if ne .chezmoi.os "darwin" }}exit 0{{ end }}
+
+set -euo pipefail
+
+SUDO_LOCAL="/etc/pam.d/sudo_local"
+
+# Check if Touch ID hardware is present
+if ! system_profiler SPiBridgeDataType 2>/dev/null | grep -qi "touch id"; then
+  echo "No Touch ID hardware detected (Mac Mini?), skipping."
+  exit 0
+fi
+
+if [[ -f "$SUDO_LOCAL" ]] && grep -q "pam_tid.so" "$SUDO_LOCAL"; then
+  echo "Touch ID for sudo already enabled, skipping."
+  exit 0
+fi
+
+echo "Enabling Touch ID for sudo (requires sudo password once)..."
+sudo tee "$SUDO_LOCAL" > /dev/null << 'EOF'
+# sudo_local: local config file which survives system updates and is included for sudo
+auth       sufficient     pam_tid.so
+EOF
+
+echo "✓ Touch ID for sudo enabled. You can now use your fingerprint for sudo."

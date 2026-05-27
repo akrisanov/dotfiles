@@ -98,7 +98,10 @@
 	prompt = false
 
 [gpg]
-	program = gpg
+	format = ssh
+
+[gpg "ssh"]
+	allowedSignersFile = ~/.ssh/allowed_signers
 
 [user]
 	name       = {{ .name }}

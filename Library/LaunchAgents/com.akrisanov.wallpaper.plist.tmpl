@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict>
-    <key>Label</key>
-    <string>com.akrisanov.wallpaper</string>
+    <dict>
+        <key>Label</key>
+        <string>com.akrisanov.wallpaper</string>
 
-    <key>ProgramArguments</key>
-    <array>
-        <string>/bin/sh</string>
-        <string>{{ .chezmoi.homeDir }}/.config/wallpaper-switch.sh</string>
-    </array>
+        <key>ProgramArguments</key>
+        <array>
+            <string>/bin/sh</string>
+            <string>{{ .chezmoi.homeDir }}/.config/wallpaper-switch.sh</string>
+        </array>
 
-    <!-- Watch for appearance changes in GlobalPreferences -->
-    <key>WatchPaths</key>
-    <array>
-        <string>{{ .chezmoi.homeDir }}/Library/Preferences/.GlobalPreferences.plist</string>
-    </array>
+        <!-- Watch for appearance changes in GlobalPreferences -->
+        <key>WatchPaths</key>
+        <array>
+            <string>{{ .chezmoi.homeDir }}/Library/Preferences/.GlobalPreferences.plist</string>
+        </array>
 
-    <!-- Also run on login to set correct wallpaper immediately -->
-    <key>RunAtLoad</key>
-    <true/>
-</dict>
+        <!-- Also run on login to set correct wallpaper immediately -->
+        <key>RunAtLoad</key>
+        <true />
+    </dict>
 </plist>

@@ -10,13 +10,16 @@ set -e
 
 REPO="akrisanov/dotfiles"
 
+# ── Homebrew ──────────────────────────────────────────────────────────────────
+if ! command -v brew >/dev/null 2>&1; then
+  echo "Installing Homebrew..."
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+
+# ── chezmoi ───────────────────────────────────────────────────────────────────
 if ! command -v chezmoi >/dev/null 2>&1; then
   echo "Installing chezmoi..."
-  if command -v brew >/dev/null 2>&1; then
-    brew install chezmoi
-  else
-    sh -c "$(curl -fsLS get.chezmoi.io)"
-  fi
+  brew install chezmoi
 fi
 
 chezmoi init --apply "$REPO"

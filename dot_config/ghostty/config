@@ -4,11 +4,11 @@
 # ── Appearance ─────────────────────────────────────────────────────────────────
 
 # Auto-switch: "light theme,dark theme"
-theme = Catppuccin Latte,Kanagawa Wave
+theme = light:Catppuccin Latte,dark:Kanagawa Wave
 
 # Font
 font-family = "JetBrains Mono"
-font-size = 14
+font-size = 13
 font-feature = calt
 font-feature = liga
 

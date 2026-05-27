@@ -4,7 +4,7 @@
 # ── Appearance ─────────────────────────────────────────────────────────────────
 
 # Auto-switch: "light theme,dark theme"
-theme = Catppuccin Latte,Kanagawa
+theme = Catppuccin Latte,Kanagawa Wave
 
 # Font
 font-family = "JetBrains Mono"
@@ -22,9 +22,6 @@ cursor-style = bar
 cursor-style-blink = true
 
 # ── Behaviour ──────────────────────────────────────────────────────────────────
-
-# Keep window open after shell exits
-window-close-confirmation = always
 
 # Confirm before quitting with multiple tabs
 quit-after-last-window-closed = false

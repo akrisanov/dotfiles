@@ -8,7 +8,8 @@ set -euo pipefail
 SUDO_LOCAL="/etc/pam.d/sudo_local"
 
 # Check if Touch ID hardware is present
-if ! system_profiler SPiBridgeDataType 2>/dev/null | grep -qi "touch id"; then
+# SPSecureElementDataType is available only on Macs with Touch ID / Secure Enclave biometrics
+if ! system_profiler SPSecureElementDataType 2>/dev/null | grep -q "Platform ID"; then
   echo "No Touch ID hardware detected (Mac Mini?), skipping."
   exit 0
 fi

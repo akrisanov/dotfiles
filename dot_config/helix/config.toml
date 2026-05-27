@@ -1,5 +1,5 @@
 # https://docs.helix-editor.com/configuration.html
-# theme = ""
+theme = "kanagawa"
 
 [editor]
 bufferline = "multiple"

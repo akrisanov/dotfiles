@@ -26,19 +26,6 @@ request = "launch"
 completion = [{ name = "entrypoint", completion = "filename", default = "." }]
 args = { mode = "debug", program = "{0}" }
 
-# Rust ---------------------------------------------------------------------------------------------
-
-[[language]]
-name = "rust"
-auto-format = true
-formatter = { command = "rustfmt" }
-
-[language-server.rust-analyzer]
-command = "rust-analyzer"
-
-[language-server.rust-analyzer.config.check]
-command = "clippy"
-
 # Go -----------------------------------------------------------------------------------------------
 
 [[language]]
@@ -53,3 +40,60 @@ config = { "gofumpt" = true }
 
 [language-server.golangci-lint-lsp]
 command = "golangci-lint-langserver"
+
+# Rust ---------------------------------------------------------------------------------------------
+
+[[language]]
+name = "rust"
+auto-format = true
+formatter = { command = "rustfmt" }
+
+[language-server.rust-analyzer]
+command = "rust-analyzer"
+
+[language-server.rust-analyzer.config.check]
+command = "clippy"
+
+# TypeScript / JavaScript --------------------------------------------------------------------------
+
+[[language]]
+name = "typescript"
+auto-format = true
+formatter = { command = "npx", args = ["prettier", "--stdin-filepath", "%{buffer_name}"] }
+
+[[language]]
+name = "tsx"
+auto-format = true
+formatter = { command = "npx", args = ["prettier", "--stdin-filepath", "%{buffer_name}"] }
+
+[[language]]
+name = "javascript"
+auto-format = true
+formatter = { command = "npx", args = ["prettier", "--stdin-filepath", "%{buffer_name}"] }
+
+[[language]]
+name = "jsx"
+auto-format = true
+formatter = { command = "npx", args = ["prettier", "--stdin-filepath", "%{buffer_name}"] }
+
+[language-server.typescript-language-server]
+command = "typescript-language-server"
+args = ["--stdio"]
+config = { hostInfo = "helix", tsserver = { }, preferences = { }, format = { semicolons = "insert" } }
+
+# C++ ----------------------------------------------------------------------------------------------
+
+[[language]]
+name = "cpp"
+auto-format = true
+formatter = { command = "clang-format" }
+language-servers = ["clangd"]
+
+[language-server.clangd]
+command = "clangd"
+args = [
+  "--background-index",
+  "--clang-tidy",
+  "--completion-style=detailed",
+  "--header-insertion=iwyu"
+]

@@ -17,13 +17,11 @@ brew "starship"                 # cross-platform shell prompt
 brew "fzf"                      # fuzzy finder; integrates with fd, git
 brew "tmux"                     # terminal multiplexer
 brew "direnv"                   # load/unload env vars based on current directory
-
-on_macos do
-  brew "terminal-notifier"      # send desktop notifications from CLI
-end
+brew "terminal-notifier"        # send desktop notifications from CLI (macOS)
 
 # ── Security ──────────────────────────────────────────────────────────────────────────────────────
 brew "gnupg"                    # GPG encryption and signing
+brew "pinentry-mac"             # GPG passphrase dialog integrated with macOS Keychain
 
 # ── Runtime versions ──────────────────────────────────────────────────────────────────────────────
 brew "mise"                     # polyglot runtime version manager (replaces asdf)
@@ -76,100 +74,92 @@ brew "ctop"                     # top-like real-time monitor for containers
 brew "dive"                     # explore and analyze docker image layers
 brew "lazydocker"               # TUI for managing docker/podman containers
 
-on_macos do
-  cask "orbstack"               # lightweight Docker Desktop alternative for macOS
-end
-
-on_linux do
-  brew "podman"                 # daemonless rootless container engine
-end
-
 # ══════════════════════════════════════════════════════════════════════════════════════════════════
-# macOS Casks
+# macOS Casks (ignored on Linux)
 # ══════════════════════════════════════════════════════════════════════════════════════════════════
 
-on_macos do
-  # ── System settings ─────────────────────────────────────────────────────────────────────────────
-  cask "betterdisplay"          # advanced display management (resolution, HDR, night mode)
-  cask "fontsmoothingadjuster"  # restore font smoothing removed in macOS Big Sur+
-  cask "jordanbaird-ice"        # menu bar manager — hide and organize menu bar items
-  cask "monitorcontrol"         # control external monitor brightness/volume via Mac keys
-  cask "tg-pro"                 # fan speed control and temperature monitoring
+# ── Containers ──────────────────────────────────────────────────────────────────────────────────
+cask "orbstack"               # lightweight Docker Desktop alternative for macOS
 
-  # ── Utilities ───────────────────────────────────────────────────────────────────────────────────
-  cask "amphetamine"            # keep Mac awake on demand
-  cask "appcleaner"             # thoroughly uninstall apps and their leftover files
-  cask "openin"                 # open links and files in the right app/browser
-  cask "rectangle"              # window manager with keyboard shortcuts
+# ── System settings ─────────────────────────────────────────────────────────────────────────────
+cask "betterdisplay"          # advanced display management (resolution, HDR, night mode)
+cask "fontsmoothingadjuster"  # restore font smoothing removed in macOS Big Sur+
+cask "jordanbaird-ice"        # menu bar manager — hide and organize menu bar items
+cask "monitorcontrol"         # control external monitor brightness/volume via Mac keys
+cask "tg-pro"                 # fan speed control and temperature monitoring
 
-  # ── Fonts ───────────────────────────────────────────────────────────────────────────────────────
-  cask "font-cascadia-code"     # monospace font with ligatures by Microsoft
-  cask "font-iosevka"           # slender monospace font for code
-  cask "font-jetbrains-mono"    # monospace font with ligatures by JetBrains
+# ── Utilities ───────────────────────────────────────────────────────────────────────────────────
+cask "amphetamine"            # keep Mac awake on demand
+cask "appcleaner"             # thoroughly uninstall apps and their leftover files
+cask "openin"                 # open links and files in the right app/browser
+cask "rectangle"              # window manager with keyboard shortcuts
 
-  # ── Terminal ────────────────────────────────────────────────────────────────────────────────────
-  cask "ghostty"                # fast GPU-accelerated terminal emulator
+# ── Fonts ───────────────────────────────────────────────────────────────────────────────────────
+cask "font-cascadia-code"     # monospace font with ligatures by Microsoft
+cask "font-iosevka"           # slender monospace font for code
+cask "font-jetbrains-mono"    # monospace font with ligatures by JetBrains
 
-  # ── Security ────────────────────────────────────────────────────────────────────────────────────
-  brew "pinentry-mac"           # GPG passphrase dialog integrated with macOS Keychain
-  cask "1password"              # password manager
-  cask "gpg-suite-no-mail"      # GUI for GPG key management (without Mail plugin)
-  cask "silentknight"           # checks macOS security settings against best practices
-  cask "suspicious-package"     # inspect pkg installers before running them
+# ── Terminal ────────────────────────────────────────────────────────────────────────────────────
+cask "ghostty"                # fast GPU-accelerated terminal emulator
 
-  # ── Browsers ────────────────────────────────────────────────────────────────────────────────────
-  cask "brave-browser"          # personal browser with built-in ad blocking
-  cask "firefox"                # browser for web engineering and devtools
-  cask "vivaldi"                # feature-rich browser for work
+# ── Security ────────────────────────────────────────────────────────────────────────────────────
+cask "1password"              # password manager
+cask "gpg-suite-no-mail"      # GUI for GPG key management (without Mail plugin)
+cask "silentknight"           # checks macOS security settings against best practices
+cask "suspicious-package"     # inspect pkg installers before running them
 
-  # ── AI ──────────────────────────────────────────────────────────────────────────────────────────
-  cask "chatgpt"                # OpenAI desktop client
+# ── Browsers ────────────────────────────────────────────────────────────────────────────────────
+cask "brave-browser"          # personal browser with built-in ad blocking
+cask "firefox"                # browser for web engineering and devtools
+cask "vivaldi"                # feature-rich browser for work
 
-  # ── Network ─────────────────────────────────────────────────────────────────────────────────────
-  cask "lulu"                   # open-source outbound firewall
-  cask "localsend"              # AirDrop alternative for local file transfer
-  cask "transmission"           # lightweight BitTorrent client
-  cask "tripmode"               # manage app access when tethering to mobile hotspot
-  cask "windows-app"            # Microsoft Remote Desktop client
+# ── AI ──────────────────────────────────────────────────────────────────────────────────────────
+cask "chatgpt"                # OpenAI desktop client
 
-  # ── Security & privacy ──────────────────────────────────────────────────────────────────────────
-  cask "cryptomator"            # client-side encryption for cloud storage
-  cask "balenaetcher"           # flash OS images to USB drives and SD cards
+# ── Network ─────────────────────────────────────────────────────────────────────────────────────
+cask "lulu"                   # open-source outbound firewall
+cask "localsend"              # AirDrop alternative for local file transfer
+cask "transmission"           # lightweight BitTorrent client
+cask "tripmode"               # manage app access when tethering to mobile hotspot
+cask "windows-app"            # Microsoft Remote Desktop client
 
-  # ── Files & sync ────────────────────────────────────────────────────────────────────────────────
-  cask "ente"                   # end-to-end encrypted photo storage (Google Photos alternative)
-  cask "syncthing"              # peer-to-peer continuous file synchronisation
+# ── Security & privacy ──────────────────────────────────────────────────────────────────────────
+cask "cryptomator"            # client-side encryption for cloud storage
+cask "balenaetcher"           # flash OS images to USB drives and SD cards
 
-  # ── Notes & tasks ───────────────────────────────────────────────────────────────────────────────
-  cask "craft"                  # native document editor for notes and docs
-  cask "logseq"                 # outliner for notes with graph view
-  cask "netnewswire"            # RSS reader
-  cask "obsidian"               # knowledge base built on local Markdown files
+# ── Files & sync ────────────────────────────────────────────────────────────────────────────────
+cask "ente"                   # end-to-end encrypted photo storage (Google Photos alternative)
+cask "syncthing"              # peer-to-peer continuous file synchronisation
 
-  # ── Media ───────────────────────────────────────────────────────────────────────────────────────
-  cask "airflow"                # stream video files to Apple TV and Chromecast
-  cask "doppler"                # music player for local files
-  cask "doppler-transfer"       # transfer music to iPhone without iTunes
-  cask "iina"                   # modern video player for macOS
-  cask "imageoptim"             # losslessly compress images
-  cask "plex"                   # media server client
-  cask "vlc"                    # universal media player
-  cask "xld"                    # lossless audio converter and CD ripper
+# ── Notes & tasks ───────────────────────────────────────────────────────────────────────────────
+cask "craft"                  # native document editor for notes and docs
+cask "logseq"                 # outliner for notes with graph view
+cask "netnewswire"            # RSS reader
+cask "obsidian"               # knowledge base built on local Markdown files
 
-  # ── Communication ───────────────────────────────────────────────────────────────────────────────
-  cask "telegram"               # messenger
-  cask "whatsapp"               # messenger
-  cask "zoom"                   # video conferencing
+# ── Media ───────────────────────────────────────────────────────────────────────────────────────
+cask "airflow"                # stream video files to Apple TV and Chromecast
+cask "doppler"                # music player for local files
+cask "doppler-transfer"       # transfer music to iPhone without iTunes
+cask "iina"                   # modern video player for macOS
+cask "imageoptim"             # losslessly compress images
+cask "plex"                   # media server client
+cask "vlc"                    # universal media player
+cask "xld"                    # lossless audio converter and CD ripper
 
-  # ── Development ─────────────────────────────────────────────────────────────────────────────────
-  cask "bruno"                  # open-source API client with Git-friendly collections
-  cask "fork"                   # fast and friendly Git GUI client
-  cask "ollama"                 # run large language models locally
-  cask "postico"                # PostgreSQL GUI client for macOS
-  cask "visual-studio-code"     # code editor
-  cask "zed"                    # fast collaborative code editor
+# ── Communication ───────────────────────────────────────────────────────────────────────────────
+cask "telegram"               # messenger
+cask "whatsapp"               # messenger
+cask "zoom"                   # video conferencing
 
-  # ── Misc ────────────────────────────────────────────────────────────────────────────────────────
-  cask "obs"                    # screen recording and live streaming
-  cask "whisky"                 # run Windows apps on macOS via Wine
-end
+# ── Development ─────────────────────────────────────────────────────────────────────────────────
+cask "bruno"                  # open-source API client with Git-friendly collections
+cask "fork"                   # fast and friendly Git GUI client
+cask "ollama"                 # run large language models locally
+cask "postico"                # PostgreSQL GUI client for macOS
+cask "visual-studio-code"     # code editor
+cask "zed"                    # fast collaborative code editor
+
+# ── Misc ────────────────────────────────────────────────────────────────────────────────────────
+cask "obs"                    # screen recording and live streaming
+cask "whisky"                 # run Windows apps on macOS via Wine

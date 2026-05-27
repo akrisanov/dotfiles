@@ -11,9 +11,6 @@ if command -v fzf &>/dev/null; then
   source <(fzf --zsh)
 fi
 
-# ── atuin — shell history ─────────────────────────────────────────────────────
-command -v atuin &>/dev/null && eval "$(atuin init zsh)"
-
 # ── Zsh plugins (installed via Homebrew) ──────────────────────────────────────
 if [[ -n "$HOMEBREW_PREFIX" ]]; then
   [[ -f "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]] && \

@@ -14,9 +14,8 @@ brew "zsh-autosuggestions"      # fish-like command suggestions for zsh
 brew "zsh-completions"          # additional completion definitions for zsh
 brew "zsh-syntax-highlighting"  # fish-like syntax highlighting for zsh
 brew "starship"                 # cross-platform shell prompt
-brew "fzf"                      # fuzzy finder; integrates with atuin, fd, git
+brew "fzf"                      # fuzzy finder; integrates with fd, git
 brew "tmux"                     # terminal multiplexer
-brew "atuin"                    # shell history with sync across machines
 brew "direnv"                   # load/unload env vars based on current directory
 
 on_macos do

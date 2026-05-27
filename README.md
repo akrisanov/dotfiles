@@ -12,7 +12,7 @@ Personal macOS & Linux dotfiles managed with [chezmoi](https://chezmoi.io).
 | Editor | Helix · VS Code · Zed |
 | Packages | Homebrew (Brewfile) |
 | Runtimes | mise (Python · Node · Go · Rust · Java) |
-| History | atuin |
+| SSH config | `~/.ssh/config` + `~/.ssh/config.local` |
 
 ## Install
 

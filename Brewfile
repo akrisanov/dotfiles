@@ -103,6 +103,7 @@ on_macos do
   cask "rectangle"              # window manager with keyboard shortcuts
 
   # ── Fonts ───────────────────────────────────────────────────────────────────────────────────────
+  cask "font-cascadia-code"     # monospace font with ligatures by Microsoft
   cask "font-iosevka"           # slender monospace font for code
   cask "font-jetbrains-mono"    # monospace font with ligatures by JetBrains
 

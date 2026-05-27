@@ -60,3 +60,6 @@ dot_config/zed/*
 !dot_config/zed/settings.json
 
 
+
+# SSH private host configs
+dot_ssh/config.local

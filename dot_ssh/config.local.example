@@ -1,0 +1,16 @@
+# Local/private SSH hosts (not committed to dotfiles).
+# Copy this file to ~/.ssh/config.local and fill in your hosts.
+
+# Example work host:
+# Host work-server
+#   HostName 10.0.0.1
+#   Port 22
+#   User yourname
+#   IdentityFile ~/.ssh/work
+
+# Example VPN:
+# Host vpn
+#   HostName <ip>
+#   Port <port>
+#   User <user>
+#   IdentityFile ~/.ssh/vpn

@@ -1,0 +1,27 @@
+# Personal hosts (work servers, VPN, local machines).
+# This file is NOT committed to dotfiles.
+# See config.local.example for the template.
+Include ~/.ssh/config.local
+
+# ── Global defaults ────────────────────────────────────────────────────────────
+
+Host *
+  AddKeysToAgent yes
+{{ if eq .chezmoi.os "darwin" -}}
+  UseKeychain yes
+{{ end -}}
+  ServerAliveInterval 60
+  ServerAliveCountMax 3
+
+# ── GitHub ─────────────────────────────────────────────────────────────────────
+
+Host github.com
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/github
+  IdentitiesOnly yes
+
+# ── OrbStack (macOS) ───────────────────────────────────────────────────────────
+{{ if eq .chezmoi.os "darwin" -}}
+Include ~/.orbstack/ssh/config
+{{ end -}}

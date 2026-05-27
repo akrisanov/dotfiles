@@ -1,0 +1,49 @@
+# Ghostty configuration
+# Docs: https://ghostty.org/docs/config
+
+# ── Appearance ─────────────────────────────────────────────────────────────────
+
+# Auto-switch: "light theme,dark theme"
+theme = Catppuccin Latte,Kanagawa
+
+# Font
+font-family = "JetBrains Mono"
+font-size = 14
+font-feature = calt
+font-feature = liga
+
+# Window
+window-padding-x = 8
+window-padding-y = 8
+window-padding-balance = true
+
+# Cursor
+cursor-style = bar
+cursor-style-blink = true
+
+# ── Behaviour ──────────────────────────────────────────────────────────────────
+
+# Keep window open after shell exits
+window-close-confirmation = always
+
+# Confirm before quitting with multiple tabs
+quit-after-last-window-closed = false
+
+# Copy on select (no need for Cmd+C after selecting text)
+copy-on-select = clipboard
+
+# Scrollback
+scrollback-limit = 10000
+
+# ── macOS ──────────────────────────────────────────────────────────────────────
+
+# Native tabs (Cmd+T) instead of floating windows
+macos-titlebar-style = tabs
+
+# Option key as Meta (for alt+. etc.)
+macos-option-as-alt = left
+
+# ── Keybindings ────────────────────────────────────────────────────────────────
+
+# Reload config without restarting
+keybind = cmd+shift+comma=reload_config

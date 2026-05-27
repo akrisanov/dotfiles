@@ -58,3 +58,5 @@ dot_config/raycast
 dot_config/uv
 dot_config/zed/*
 !dot_config/zed/settings.json
+
+

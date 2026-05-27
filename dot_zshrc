@@ -6,3 +6,6 @@ for _zsh_config in ~/.config/zsh/*.zsh(N); do
   source "$_zsh_config"
 done
 unset _zsh_config
+
+# Local overrides — machine-specific tools (e.g. yandex-cloud, work SDKs)
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local

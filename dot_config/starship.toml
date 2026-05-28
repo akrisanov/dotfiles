@@ -1,0 +1,22 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Increase timeout for slow commands (default is 500ms)
+command_timeout = 2000
+
+[python]
+# Use mise/pyenv virtual env name instead of running python binary
+python_binary = []         # don't execute python to get version
+detect_files   = []        # only show when explicitly in a venv
+
+[nodejs]
+detect_files = ["package.json"]
+detect_folders = ["node_modules"]
+
+[rust]
+detect_files = ["Cargo.toml"]
+
+[golang]
+detect_files = ["go.mod"]
+
+[java]
+detect_files = ["pom.xml", "build.gradle"]

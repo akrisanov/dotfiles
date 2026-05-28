@@ -21,5 +21,8 @@ elif [[ -x /home/linuxbrew/.linuxbrew/bin/brew ]]; then eval "$(/home/linuxbrew/
 elif [[ -x "$HOME/.linuxbrew/bin/brew" ]];         then eval "$("$HOME/.linuxbrew/bin/brew" shellenv)"
 fi
 
+# ── User local bin (uv tools, pip --user, etc.) ───────────────────────────────
+[[ -d "$HOME/.local/bin" ]] && path=("$HOME/.local/bin" $path)
+
 # ── Path deduplication ────────────────────────────────────────────────────────
 typeset -gU cdpath fpath mailpath path

@@ -3,10 +3,10 @@
 # Triggered by LaunchAgent watching GlobalPreferences changes.
 #
 # Place wallpapers at:
-#   ~/.config/wallpapers/dark.jpeg
-#   ~/.config/wallpapers/light.jpeg
+#   ~/.local/share/wallpapers/dark.jpeg
+#   ~/.local/share/wallpapers/light.jpeg
 
-WALLPAPERS="$HOME/.config/wallpapers"
+WALLPAPERS="$HOME/.local/share/wallpapers"
 mode=$(defaults read -g AppleInterfaceStyle 2>/dev/null)
 
 if [ "$mode" = "Dark" ]; then

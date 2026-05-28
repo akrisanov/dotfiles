@@ -67,7 +67,7 @@ brew bundle cleanup --file=~/Brewfile # remove packages not in Brewfile
 ## macOS defaults
 
 ```sh
-~/dotfiles/tools/osx-tweaks
+~/dotfiles/scripts/osx-tweaks
 ```
 
 ## Git profiles

@@ -1,0 +1,5 @@
+# Files that exist in the source repo but should NOT be deployed to ~/
+README.md
+LICENSE
+bootstrap.sh
+scripts/

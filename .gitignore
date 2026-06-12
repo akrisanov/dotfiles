@@ -63,3 +63,6 @@ dot_config/zed/*
 
 # SSH private host configs
 dot_ssh/config.local
+
+# Homebrew lock file (local machine state)
+Brewfile.lock.json

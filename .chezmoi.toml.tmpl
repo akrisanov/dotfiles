@@ -1,10 +1,18 @@
 {{- $name := promptStringOnce . "name" "Full name" -}}
 {{- $email := promptStringOnce . "email" "Email address" -}}
 {{- $signingKey := promptStringOnce . "signingKey" "SSH signing key (paste full public key, e.g. ssh-ed25519 AAAA...)" -}}
-{{- $machineType := promptStringOnce . "machineType" "Machine type (air / pro / mini)" -}}
+{{- $runtimeEnv := promptStringOnce . "runtimeEnv" "Runtime environment (darwin / wsl / linux)" -}}
+{{- $machineKind := promptStringOnce . "machineKind" "Machine kind (mac-mini / macbook-air / wsl / linux-desktop)" -}}
+{{- $machineRole := promptStringOnce . "machineRole" "Machine role (personal / work)" -}}
+{{- $installGuiAppsRaw := promptStringOnce . "installGuiApps" "Install GUI apps? (true / false)" -}}
+{{- $installWorkToolsRaw := promptStringOnce . "installWorkTools" "Install work tools? (true / false)" -}}
 
 [data]
-    name        = {{ $name | quote }}
-    email       = {{ $email | quote }}
-    signingKey  = {{ $signingKey | quote }}
-    machineType = {{ $machineType | quote }}
+    name             = {{ $name | quote }}
+    email            = {{ $email | quote }}
+    signingKey       = {{ $signingKey | quote }}
+    runtimeEnv       = {{ $runtimeEnv | quote }}
+    machineKind      = {{ $machineKind | quote }}
+    machineRole      = {{ $machineRole | quote }}
+    installGuiApps   = {{ eq (lower $installGuiAppsRaw) "true" }}
+    installWorkTools = {{ eq (lower $installWorkToolsRaw) "true" }}

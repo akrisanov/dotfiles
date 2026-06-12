@@ -2,6 +2,8 @@
 # Register the wallpaper LaunchAgent.
 # chezmoi runs this once (or when the script content changes).
 
+[ "$(uname -s)" = "Darwin" ] || exit 0
+
 plist="$HOME/Library/LaunchAgents/com.akrisanov.wallpaper.plist"
 
 if [ ! -f "$plist" ]; then

@@ -2,4 +2,8 @@
 README.md
 LICENSE
 bootstrap.sh
+Brewfile
+Brewfile.lock.json
 scripts/
+linux/
+vscode/

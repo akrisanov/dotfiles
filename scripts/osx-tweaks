@@ -1,6 +1,6 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 # macOS system defaults
-# Run once after a fresh install: ~/dotfiles/tools/osx-tweaks
+# Safe to re-run after each config update: ~/dotfiles/scripts/osx-tweaks
 
 # ── Rosetta 2 (Apple Silicon) ─────────────────────────────────────────────────
 /usr/sbin/softwareupdate --install-rosetta --agree-to-license 2>/dev/null || true

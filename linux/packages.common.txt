@@ -1,0 +1,14 @@
+git
+zsh
+ripgrep
+fd-find
+fzf
+bat
+eza
+jq
+yq
+tmux
+helix
+direnv
+curl
+ca-certificates

@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+{{ if ne .chezmoi.os "linux" }}exit 0{{ end }}
+{{- $runtimeEnv := (get . "runtimeEnv" | default "linux") -}}
+
+set -euo pipefail
+
+# Re-render this script when linux package baseline changes.
+# linux_packages_sha256={{ include "linux/packages.common.txt" | sha256sum }}
+
+if ! command -v apt-get >/dev/null 2>&1; then
+  echo "apt-get not found; Linux package install currently supports Debian/Ubuntu only."
+  exit 0
+fi
+
+if ! command -v sudo >/dev/null 2>&1; then
+  echo "sudo is required for Linux package installation."
+  exit 1
+fi
+
+echo "Installing Linux baseline packages for runtimeEnv={{ $runtimeEnv }}"
+
+packages_file="$(chezmoi source-path linux/packages.common.txt)"
+declare -a packages=()
+while IFS= read -r line; do
+  package="$(printf '%s' "$line" | sed 's/[[:space:]]*#.*$//' | xargs)"
+  [[ -z "$package" ]] && continue
+  packages+=("$package")
+done < "$packages_file"
+
+declare -a missing_packages=()
+for package in "${packages[@]}"; do
+  if ! dpkg -s "$package" >/dev/null 2>&1; then
+    missing_packages+=("$package")
+  fi
+done
+
+if [[ "${#missing_packages[@]}" -gt 0 ]]; then
+  sudo apt-get update
+  sudo apt-get install -y "${missing_packages[@]}"
+fi
+
+if ! command -v starship >/dev/null 2>&1; then
+  curl -fsSL https://starship.rs/install.sh | sh -s -- -y
+fi
+
+if ! command -v mise >/dev/null 2>&1; then
+  curl -fsSL https://mise.run | sh
+fi
+
+mkdir -p "$HOME/.local/bin"
+
+if command -v fdfind >/dev/null 2>&1 && ! command -v fd >/dev/null 2>&1; then
+  ln -sf "$(command -v fdfind)" "$HOME/.local/bin/fd"
+fi
+
+if command -v batcat >/dev/null 2>&1 && ! command -v bat >/dev/null 2>&1; then
+  ln -sf "$(command -v batcat)" "$HOME/.local/bin/bat"
+fi

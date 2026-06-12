@@ -1,15 +1,15 @@
 # Personal hosts (work servers, VPN, local machines).
 # This file is NOT committed to dotfiles.
-# See config.local.example for the template.
+# Bootstrap template: create_private_dot_ssh/config.local.tmpl.
 Include ~/.ssh/config.local
 
 # ── Global defaults ────────────────────────────────────────────────────────────
 
 Host *
   AddKeysToAgent yes
-{{ if eq .chezmoi.os "darwin" -}}
+{{- if eq .chezmoi.os "darwin" }}
   UseKeychain yes
-{{ end -}}
+{{- end }}
   ServerAliveInterval 60
   ServerAliveCountMax 3
 

@@ -15,4 +15,4 @@
     machineKind      = {{ $machineKind | quote }}
     machineRole      = {{ $machineRole | quote }}
     installGuiApps   = {{ eq (lower $installGuiAppsRaw) "true" }}
-    installWorkTools = {{ eq (lower $installWorkToolsRaw) "false" }}
+    installWorkTools = {{ eq (lower $installWorkToolsRaw) "true" }}

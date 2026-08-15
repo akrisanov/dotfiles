@@ -7,3 +7,7 @@ Brewfile.lock.json
 scripts/
 linux/
 vscode/
+
+{{ if ne .chezmoi.os "darwin" }}
+.ssh/config.local
+{{ end }}

@@ -6,6 +6,7 @@
 {{- $machineRole := promptStringOnce . "machineRole" "Machine role (personal / work)" -}}
 {{- $installGuiAppsRaw := promptStringOnce . "installGuiApps" "Install GUI apps? (true / false)" -}}
 {{- $installWorkToolsRaw := promptStringOnce . "installWorkTools" "Install work tools? (true / false)" -}}
+{{- $sshPrivateConfig := promptStringOnce . "sshPrivateConfig" "Path to private SSH config (leave empty to disable)" -}}
 
 [data]
     name             = {{ $name | quote }}
@@ -16,3 +17,4 @@
     machineRole      = {{ $machineRole | quote }}
     installGuiApps   = {{ eq (lower $installGuiAppsRaw) "true" }}
     installWorkTools = {{ eq (lower $installWorkToolsRaw) "true" }}
+    sshPrivateConfig = {{ $sshPrivateConfig | quote }}

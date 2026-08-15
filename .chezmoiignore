@@ -8,6 +8,6 @@ scripts/
 linux/
 vscode/
 
-{{ if ne .chezmoi.os "darwin" }}
+{{ if not .sshPrivateConfig }}
 .ssh/config.local
 {{ end }}

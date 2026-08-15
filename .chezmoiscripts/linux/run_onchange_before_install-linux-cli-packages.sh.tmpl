@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
-{{ if ne .chezmoi.os "linux" }}exit 0{{ end }}
-{{- $runtimeEnv := (get . "runtimeEnv" | default "linux") -}}
+{{ $runtimeEnv := (get . "runtimeEnv" | default "linux") }}
+{{ if ne .chezmoi.os "linux" }}
+exit 0
+{{ end }}
 
 set -euo pipefail
+
 
 # Re-render this script when linux package baseline changes.
 # linux_packages_sha256={{ include "linux/packages.common.txt" | sha256sum }}
@@ -19,13 +22,15 @@ fi
 
 echo "Installing Linux baseline packages for runtimeEnv={{ $runtimeEnv }}"
 
-packages_file="$(chezmoi source-path linux/packages.common.txt)"
 declare -a packages=()
+
 while IFS= read -r line; do
   package="$(printf '%s' "$line" | sed 's/[[:space:]]*#.*$//' | xargs)"
   [[ -z "$package" ]] && continue
   packages+=("$package")
-done < "$packages_file"
+done <<'EOF'
+{{ include "linux/packages.common.txt" }}
+EOF
 
 declare -a missing_packages=()
 for package in "${packages[@]}"; do

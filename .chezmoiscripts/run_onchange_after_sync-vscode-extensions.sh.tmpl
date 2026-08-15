@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-{{- $machineRole := (get . "machineRole" | default "personal") -}}
-{{- $installWorkTools := (get . "installWorkTools" | default false) -}}
+{{ $machineRole := (get . "machineRole" | default "personal") }}
+{{ $installWorkTools := (get . "installWorkTools" | default false) }}
 
 set -euo pipefail
 
@@ -14,27 +14,36 @@ if ! command -v code >/dev/null 2>&1; then
   exit 0
 fi
 
-declare -a extension_files=(
-  "$(chezmoi source-path vscode/extensions.common.txt)"
-)
-
-{{ if eq $machineRole "personal" -}}
-extension_files+=("$(chezmoi source-path vscode/extensions.personal.txt)")
-{{ end -}}
-{{ if or (eq $machineRole "work") $installWorkTools -}}
-extension_files+=("$(chezmoi source-path vscode/extensions.work.txt)")
-{{ end -}}
-
 installed_extensions="$(code --list-extensions)"
 declare -a desired_extensions=()
 
-for list_file in "${extension_files[@]}"; do
-  while IFS= read -r line; do
-    extension="$(printf '%s' "$line" | sed 's/[[:space:]]*#.*$//' | xargs)"
-    [[ -z "$extension" ]] && continue
-    desired_extensions+=("$extension")
-  done < "$list_file"
-done
+while IFS= read -r line; do
+  extension="$(printf '%s' "$line" | sed 's/[[:space:]]*#.*$//' | xargs)"
+  [[ -z "$extension" ]] && continue
+  desired_extensions+=("$extension")
+done <<'EOF'
+{{ include "vscode/extensions.common.txt" }}
+EOF
+
+{{ if eq $machineRole "personal" }}
+while IFS= read -r line; do
+  extension="$(printf '%s' "$line" | sed 's/[[:space:]]*#.*$//' | xargs)"
+  [[ -z "$extension" ]] && continue
+  desired_extensions+=("$extension")
+done <<'EOF'
+{{ include "vscode/extensions.personal.txt" }}
+EOF
+{{ end }}
+
+{{ if or (eq $machineRole "work") $installWorkTools }}
+while IFS= read -r line; do
+  extension="$(printf '%s' "$line" | sed 's/[[:space:]]*#.*$//' | xargs)"
+  [[ -z "$extension" ]] && continue
+  desired_extensions+=("$extension")
+done <<'EOF'
+{{ include "vscode/extensions.work.txt" }}
+EOF
+{{ end }}
 
 failed=0
 for extension in "${desired_extensions[@]}"; do

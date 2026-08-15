@@ -1,15 +1,19 @@
 #!/usr/bin/env bash
-{{ if ne .chezmoi.os "darwin" }}exit 0{{ end }}
+{{ if ne .chezmoi.os "darwin" }}
+exit 0
+{{ end }}
 
 set -euo pipefail
 
 # Re-render this script when scripts/osx-tweaks changes.
 # osx_tweaks_sha256={{ include "scripts/osx-tweaks" | sha256sum }}
 
-tweaks_script="$(chezmoi source-path scripts/osx-tweaks)"
+tmp_script="$(mktemp "${TMPDIR:-/tmp}/chezmoi-osx-tweaks.XXXXXX")"
+trap 'rm -f "$tmp_script"' EXIT
 
-if [[ ! -x "$tweaks_script" ]]; then
-  chmod +x "$tweaks_script"
-fi
+cat > "$tmp_script" <<'EOF'
+{{ include "scripts/osx-tweaks" }}
+EOF
 
-"$tweaks_script"
+chmod +x "$tmp_script"
+"$tmp_script"

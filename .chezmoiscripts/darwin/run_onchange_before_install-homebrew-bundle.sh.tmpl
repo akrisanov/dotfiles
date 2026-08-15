@@ -11,11 +11,12 @@ if ! command -v brew >/dev/null 2>&1; then
   exit 0
 fi
 
-source_brewfile="$(chezmoi source-path Brewfile)"
 tmp_brewfile="$(mktemp "${TMPDIR:-/tmp}/chezmoi-brewfile.XXXXXX")"
 trap 'rm -f "$tmp_brewfile"' EXIT
 
-chezmoi execute-template < "$source_brewfile" > "$tmp_brewfile"
+cat > "$tmp_brewfile" <<'EOF'
+{{ includeTemplate "Brewfile" . }}
+EOF
 
 if brew bundle check --no-upgrade --file "$tmp_brewfile" >/dev/null; then
   echo "Homebrew bundle is already satisfied."

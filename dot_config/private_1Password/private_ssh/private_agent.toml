@@ -1,0 +1,10 @@
+[[ssh-keys]]
+item = "GitHub"
+vault = "Work"
+
+[[ssh-keys]]
+item = "Work PC"
+vault = "Work"
+
+[[ssh-keys]]
+vault = "Private"

@@ -75,6 +75,7 @@ cask "codex"
 cask "raycast"
 cask "lulu"
 cask "localsend"
+cask "tailscale-app"
 cask "transmission"
 cask "tripmode"
 cask "windows-app"
@@ -84,9 +85,7 @@ cask "ente"
 cask "syncthing-app"
 cask "craft"
 cask "logseq"
-cask "netnewswire"
 cask "obsidian"
-cask "airflow"
 cask "iina"
 cask "imageoptim"
 cask "plex"
@@ -101,13 +100,14 @@ cask "postico"
 cask "visual-studio-code"
 cask "zed"
 cask "obs"
+cask "keycastr"
+cask "forklift"
 {{ end -}}
 
 {{ if eq $machineKind "mac-mini" -}}
 # ── Mac mini-specific tools ────────────────────────────────────────────────────
 {{ if $installGuiApps -}}
 cask "betterdisplay"
-cask "tg-pro"
 {{ end -}}
 {{ end -}}
 
@@ -115,7 +115,6 @@ cask "tg-pro"
 # ── MacBook Air-specific exclusions ────────────────────────────────────────────
 # Intentionally skipping:
 # - betterdisplay
-# - tg-pro
 {{ end -}}
 
 {{ if eq $machineRole "personal" -}}
@@ -123,7 +122,12 @@ cask "tg-pro"
 brew "bjarneo/cliamp/cliamp"
 {{ if $installGuiApps -}}
 cask "dropbox"
+cask "google-drive"
+cask "reader"
+cask "todoist-app"
 cask "plexamp"
+cask "steam"
+cask "happ"
 cask "vivaldi"
 {{ end -}}
 {{ end -}}
@@ -136,8 +140,5 @@ brew "k9s"
 brew "kind"
 brew "temporal"
 brew "tilt"
-{{ if $installGuiApps -}}
-cask "microsoft-teams"
-{{ end -}}
 {{ end -}}
 {{ end -}}

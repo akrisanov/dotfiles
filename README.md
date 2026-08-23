@@ -90,7 +90,6 @@ brew bundle cleanup --file "$(chezmoi source-path)/Brewfile"
 
 - Homebrew bundle sync on macOS when `Brewfile` changes.
 - Linux baseline CLI packages on Debian/Ubuntu.
-- VS Code extension sync from profile-based lists.
 - macOS defaults apply through `scripts/osx-tweaks`.
 
 ## Local/private files

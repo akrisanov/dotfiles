@@ -2,9 +2,6 @@
 # macOS system defaults
 # Safe to re-run after each config update: ~/dotfiles/scripts/osx-tweaks
 
-# ── Rosetta 2 (Apple Silicon) ─────────────────────────────────────────────────
-/usr/sbin/softwareupdate --install-rosetta --agree-to-license 2>/dev/null || true
-
 # ── Keyboard & input ──────────────────────────────────────────────────────────
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled     -bool false
@@ -68,22 +65,6 @@ defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
 
 # ── Crash Reporter ─────────────────────────────────────────────────────────────
 defaults write com.apple.CrashReporter DialogType -string "none"  # no crash dialogs
-
-# ── Spotlight ─────────────────────────────────────────────────────────────────
-# Exclude heavy developer directories from indexing.
-# Add your own paths as needed (e.g. large project folders).
-for dir in \
-  "$HOME/.cargo/registry" \
-  "$HOME/.cargo/git" \
-  "$HOME/.mise" \
-  "$HOME/.gradle" \
-  "$HOME/.m2"; do
-  if [[ -d "$dir" ]]; then
-    mdutil -i off "$dir" 2>/dev/null || true
-  fi
-done
-# To exclude a project directory:
-#   mdutil -i off ~/Projects/my-big-project
 
 # ── Restart affected services ─────────────────────────────────────────────────
 for app in Finder Dock SystemUIServer; do

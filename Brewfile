@@ -58,7 +58,6 @@ cask "orbstack"
 cask "jordanbaird-ice"
 cask "appcleaner"
 cask "openin"
-cask "rectangle"
 cask "font-cascadia-code"
 cask "font-iosevka"
 cask "font-jetbrains-mono"
@@ -87,7 +86,6 @@ cask "iina"
 cask "imageoptim"
 cask "plex"
 cask "vlc"
-cask "xld"
 cask "telegram"
 cask "whatsapp"
 cask "zoom"
@@ -98,14 +96,12 @@ cask "postico"
 cask "visual-studio-code"
 cask "zed"
 cask "obs"
-cask "whisky"
 {{ end -}}
 
 {{ if eq $machineKind "mac-mini" -}}
 # ── Mac mini-specific tools ────────────────────────────────────────────────────
 {{ if $installGuiApps -}}
 cask "betterdisplay"
-cask "fontsmoothingadjuster"
 cask "tg-pro"
 {{ end -}}
 {{ end -}}
@@ -114,7 +110,6 @@ cask "tg-pro"
 # ── MacBook Air-specific exclusions ────────────────────────────────────────────
 # Intentionally skipping:
 # - betterdisplay
-# - fontsmoothingadjuster
 # - tg-pro
 {{ end -}}
 

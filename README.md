@@ -81,9 +81,16 @@ chezmoi apply --verbose
 ## Package sync (Homebrew)
 
 ```sh
-brew bundle check --no-upgrade --file "$(chezmoi source-path)/Brewfile"
-brew outdated --greedy
-brew bundle cleanup --file "$(chezmoi source-path)/Brewfile"
+(
+  set -e
+  tmp_brewfile="$(mktemp "${TMPDIR:-/tmp}/chezmoi-brewfile.XXXXXX")"
+  trap 'rm -f "$tmp_brewfile"' EXIT
+
+  chezmoi execute-template < "$(chezmoi source-path)/Brewfile" > "$tmp_brewfile"
+  brew bundle check --no-upgrade --file "$tmp_brewfile"
+  brew outdated --greedy
+  brew bundle cleanup --file "$tmp_brewfile"
+)
 ```
 
 ## Automation (run_onchange scripts)

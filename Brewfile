@@ -10,7 +10,6 @@
 # ── Common CLI tools ───────────────────────────────────────────────────────────
 brew "chezmoi"
 brew "bash"
-brew "zsh"
 brew "zsh-autosuggestions"
 brew "zsh-completions"
 brew "zsh-syntax-highlighting"
@@ -44,7 +43,6 @@ brew "yt-dlp"
 brew "helix"
 brew "zola"
 brew "exercism"
-brew "ctop"
 brew "dive"
 brew "lazydocker"
 
@@ -79,7 +77,7 @@ cask "windows-app"
 cask "cryptomator"
 cask "balenaetcher"
 cask "ente"
-cask "syncthing"
+cask "syncthing-app"
 cask "craft"
 cask "logseq"
 cask "netnewswire"
@@ -95,7 +93,7 @@ cask "whatsapp"
 cask "zoom"
 cask "bruno"
 cask "fork"
-cask "ollama"
+cask "ollama-app"
 cask "postico"
 cask "visual-studio-code"
 cask "zed"
@@ -108,7 +106,6 @@ cask "whisky"
 {{ if $installGuiApps -}}
 cask "betterdisplay"
 cask "fontsmoothingadjuster"
-cask "monitorcontrol"
 cask "tg-pro"
 {{ end -}}
 {{ end -}}
@@ -118,7 +115,6 @@ cask "tg-pro"
 # Intentionally skipping:
 # - betterdisplay
 # - fontsmoothingadjuster
-# - monitorcontrol
 # - tg-pro
 {{ end -}}
 

@@ -127,7 +127,6 @@ cask "reader"
 cask "todoist-app"
 cask "plexamp"
 cask "steam"
-cask "happ"
 cask "vivaldi"
 {{ end -}}
 {{ end -}}

@@ -39,8 +39,11 @@ brew "sqlite"
 brew "curlie"
 brew "wget"
 brew "ffmpeg"
+brew "imagemagick"
 brew "yt-dlp"
 brew "helix"
+brew "golangci-lint"
+brew "llvm"
 brew "zola"
 brew "exercism"
 brew "dive"
@@ -68,6 +71,8 @@ cask "suspicious-package"
 cask "brave-browser"
 cask "firefox"
 cask "chatgpt"
+cask "codex"
+cask "raycast"
 cask "lulu"
 cask "localsend"
 cask "transmission"
@@ -114,14 +119,23 @@ cask "tg-pro"
 {{ end -}}
 
 {{ if eq $machineRole "personal" -}}
-# ── Personal-only apps ──────────────────────────────────────────────────────────
+# ── Personal-only tools ─────────────────────────────────────────────────────────
+brew "bjarneo/cliamp/cliamp"
 {{ if $installGuiApps -}}
+cask "dropbox"
+cask "plexamp"
 cask "vivaldi"
 {{ end -}}
 {{ end -}}
 
 {{ if or (eq $machineRole "work") $installWorkTools -}}
-# ── Work-only apps ──────────────────────────────────────────────────────────────
+# ── Work-only tools ─────────────────────────────────────────────────────────────
+brew "awscli"
+brew "helm"
+brew "k9s"
+brew "kind"
+brew "temporal"
+brew "tilt"
 {{ if $installGuiApps -}}
 cask "microsoft-teams"
 {{ end -}}
